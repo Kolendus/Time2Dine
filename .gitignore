@@ -5,9 +5,8 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff:
-Time2Dine/.idea/**/workspace.xml
-Time2Dine/.idea/**/tasks.xml
-Time2Dine/.idea/dictionaries
+.idea/
+.idea/dictionaries
 
 # Sensitive or high-churn files:
 Time2Dine/.idea/**/dataSources/
