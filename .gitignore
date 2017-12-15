@@ -5,28 +5,28 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff:
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/dictionaries
+Time2Dine/.idea/**/workspace.xml
+Time2Dine/.idea/**/tasks.xml
+Time2Dine/.idea/dictionaries
 
 # Sensitive or high-churn files:
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.xml
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
+Time2Dine/.idea/**/dataSources/
+Time2Dine/.idea/**/dataSources.ids
+Time2Dine/.idea/**/dataSources.xml
+Time2Dine/.idea/**/dataSources.local.xml
+Time2Dine/.idea/**/sqlDataSources.xml
+Time2Dine/.idea/**/dynamic.xml
+Time2Dine/.idea/**/uiDesigner.xml
 
 # Gradle:
-.idea/**/gradle.xml
-.idea/**/libraries
+Time2Dine/.idea/**/gradle.xml
+Time2Dine/.idea/**/libraries
 
 # CMake
 cmake-build-debug/
 
 # Mongo Explorer plugin:
-.idea/**/mongoSettings.xml
+Time2Dine/.idea/**/mongoSettings.xml
 
 ## File-based project format:
 *.iws
@@ -43,7 +43,7 @@ cmake-build-debug/
 atlassian-ide-plugin.xml
 
 # Cursive Clojure plugin
-.idea/replstate.xml
+Time2Dine/.ideareplstate.xml
 
 # Ruby plugin and RubyMine
 /.rakeTasks
@@ -59,11 +59,11 @@ fabric.properties
 
 # *.iml
 # modules.xml
-# .idea/misc.xml
+# Time2Dine/.ideamisc.xml
 # *.ipr
 
 # Sonarlint plugin
-.idea/sonarlint
+Time2Dine/.ideasonarlint
 
 ### Java ###
 # Compiled class file
