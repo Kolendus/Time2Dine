@@ -2,6 +2,7 @@ public class GUI extends javax.swing.JFrame {
 
     public GUI() {
         initComponents();
+        this.add(new Graphics2D());
     }
 
     @SuppressWarnings("unchecked")
@@ -95,8 +96,7 @@ public class GUI extends javax.swing.JFrame {
         jBigBenchPriceLabel = new javax.swing.JLabel();
         jBigBenchPriceField = new javax.swing.JTextField();
         jBigBenchDollarLabel = new javax.swing.JLabel();
-        jDisplayPanel = new javax.swing.JScrollPane();
-        jDisplayGraphic = new javax.swing.JTextArea();
+        jDisplayPanel = new Graphics2D();
         jStopButton = new javax.swing.JButton();
         jStartButton = new javax.swing.JButton();
         jAlgorithmSettingsLabel = new javax.swing.JLabel();
@@ -885,12 +885,6 @@ public class GUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Time2Dine");
 
-        jDisplayGraphic.setColumns(20);
-        jDisplayGraphic.setRows(5);
-        jDisplayGraphic.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jDisplayGraphic.setEnabled(false);
-        jDisplayPanel.setViewportView(jDisplayGraphic);
-
         jStopButton.setText("Stop");
         jStopButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1260,8 +1254,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jCrossbreadRatioField;
     private javax.swing.JLabel jCrossbreadRatioLabel;
     private javax.swing.JSlider jCrossbreadRatioSlider;
-    private javax.swing.JTextArea jDisplayGraphic;
-    private javax.swing.JScrollPane jDisplayPanel;
+    private javax.swing.JPanel jDisplayPanel;
     private javax.swing.JLabel jDoorDollarLabel;
     private javax.swing.JPanel jDoorWindowPanel;
     private javax.swing.JLabel jDoorsLabel;
