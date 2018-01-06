@@ -41,7 +41,8 @@ public class Canteen {
     /* number 18 is estimated area needed for 3 6-person
     tables in a diner. We are assuming that both parts of the diner
     has to be able to fit at least 6 6-person tables. It is
-    supposed to be school diner duh
+    supposed to be school diner duh. In addition bWall has to be bigger than tWall
+    to avoid not creating L-shaped canteen
      */
     public boolean validateWallsPerimeters(){
         double leftArea,rightArea;

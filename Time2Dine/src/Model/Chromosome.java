@@ -2,14 +2,19 @@ import java.util.ArrayList;
 
 public class Chromosome {
     ArrayList<Furniture> furList;
-    boolean [] chromosomeArray;
+    boolean[] chromosomeArray;
+    private double evaluationPoints;
 
-    public Chromosome(ArrayList<Furniture> furList, boolean[] chromosomeArray) {
-        this.furList = furList;
-        this.chromosomeArray = chromosomeArray;
+    public Chromosome() {
+        this.furList = new ArrayList<>();
     }
 
-    public void addFurniture(Furniture mebel){
+    public void addFurniture(Furniture mebel) {
         furList.add(mebel);
     }
+
+    public boolean[] createCromosomeArray() {
+        return null;
+    }
+
 }
