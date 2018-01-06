@@ -2,20 +2,22 @@ import java.util.ArrayList;
 
 public class Controller {
 
-    private Algorithm algorithm;
-    private Canteen canteen;
-    private ArrayList chromosomes;
+   private Model theModel;
 
     public Controller(Algorithm algorithm, Canteen canteen, Chromosome chromosome) {
-        this.algorithm = algorithm;
-        this.canteen = canteen;
-        this.chromosomes = new ArrayList<Chromosome>();
+        theModel = new Model();
     }
 
-    public void generateChromosome() {
-        chromosomes.add(algorithm.generateChromosomes(canteen));
+    public ArrayList<Chromosome> generateChromosome() {
+        theModel.createPopulation();
+        return theModel.getChromosomes();
     }
-   /*
+    public Canteen getCanteen(double bWall, double tWall, double rWall, double lWall){
+        theModel.createCanteen(bWall, tWall, rWall, lWall);
+        return theModel.getCanteen();
+    }
+
+    /*
     public void crossBreed(){
         algorithm.crossBreed(chromosomes);
     }
@@ -26,7 +28,4 @@ public class Controller {
     }
     */
 
-    public void clearArrayList(){
-        this.chromosomes = new ArrayList<Chromosome>();
-    }
 }
