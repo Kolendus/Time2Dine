@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+
 public class GUI extends javax.swing.JFrame {
 
     public GUI() {
@@ -1013,23 +1016,43 @@ public class GUI extends javax.swing.JFrame {
 
         jItemSavePNG.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jItemSavePNG.setText("Save to png...");
+        jItemSavePNG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jItemSavePNG(evt);
+            }
+        });
         jBarFile.add(jItemSavePNG);
 
         jItemExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
         jItemExit.setText("Exit");
+        jItemExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jItemExiActionPerformed(evt);
+            }
+        });
         jBarFile.add(jItemExit);
 
         jMenuBar.add(jBarFile);
 
         jBarSettings.setText("Settings");
 
-        jItemAlgorithmSettings.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
+/*        ItemAlgorithmSettings.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK));
         jItemAlgorithmSettings.setText("Algorithm settings");
-        jBarSettings.add(jItemAlgorithmSettings);
+        jItemAlgorithmSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jItemAlgorithmSettingsActionPerformed(evt);
+            }
+        });*/
+        //jBarSettings.add(jItemAlgorithmSettings);
 
         jItemCanteenSettings.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
         jItemCanteenSettings.setText("Canteen settings");
         jItemCanteenSettings.setToolTipText("");
+        jItemCanteenSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jItemAlgorithmSettingsActionPerformed(evt);
+            }
+        });
         jBarSettings.add(jItemCanteenSettings);
 
         jMenuBar.add(jBarSettings);
@@ -1092,8 +1115,25 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jItemSavePNG(ActionEvent evt) {
+        JFileChooser chooser = new JFileChooser();
+        chooser.setVisible(true);
+    }
+
+    private void jItemExiActionPerformed(ActionEvent evt) {
+        System.exit(0);
+    }
+
+    private void jItemAlgorithmSettingsActionPerformed(ActionEvent evt) {
+        jCanteenSettingsFrame.setSize(454, 880);
+        jCanteenSettingsFrame.setVisible(true);
+    }
+
     private void jItemHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jItemHelpActionPerformed
-        // TODO add your handling code here:
+    }//GEN-LAST:event_jItemHelpActionPerformed
+
+    private void jAlgorithSettingsLabel(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jItemHelpActionPerformed
+
     }//GEN-LAST:event_jItemHelpActionPerformed
 
     private void jStartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartButtonActionPerformed
@@ -1165,7 +1205,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMediumIllumiantionPriceFieldActionPerformed
 
     private void jCanteenSettingsSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCanteenSettingsSaveButtonActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jCanteenSettingsSaveButtonActionPerformed
 
     private void jCrossbreadRatioFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCrossbreadRatioFieldActionPerformed
