@@ -1,11 +1,16 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.io.File;
 
 public class GUI extends javax.swing.JFrame {
 
+    private Graphics2D graphics;
+
     public GUI() {
         initComponents();
-        this.add(new Graphics2D());
+        graphics = new Graphics2D();
+        this.add(graphics);
     }
 
     @SuppressWarnings("unchecked")
@@ -1116,8 +1121,34 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jItemSavePNG(ActionEvent evt) {
-        JFileChooser chooser = new JFileChooser();
-        chooser.setVisible(true);
+        JFrame parentFrame = new JFrame();
+
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Save as PNG...");
+
+        int userSelection = fileChooser.showSaveDialog(parentFrame);
+
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            if(fileToSave.getName().toLowerCase().endsWith(".png")) {
+                try {
+                    ImageIO.write(graphics.getSavePicture(), "png", fileToSave);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            "Can't save picture!",
+                            "Inane error",
+                            JOptionPane.ERROR_MESSAGE);
+                };
+                JOptionPane.showMessageDialog(new JFrame(),
+                        "Picture saved.");
+            } else {
+                JOptionPane.showMessageDialog(new JFrame(),
+                        "File format must be png!",
+                        "Inane error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+
+        }
     }
 
     private void jItemExiActionPerformed(ActionEvent evt) {
