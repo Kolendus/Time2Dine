@@ -20,4 +20,14 @@ public class Furniture {
         this.dPosition = dPosition;
         this.furCost = furCost;
     }
+
+    public Furniture(FurnitureEnum key, double aPosition, double bPosition) {
+        this.key = key;
+        this.aPosition = aPosition;
+        this.bPosition = bPosition;
+    }
+
+    public double getFurCost() {
+        return furCost;
+    }
 }

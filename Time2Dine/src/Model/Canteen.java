@@ -6,6 +6,10 @@ public class Canteen {
     private double tWall;
     private double rWall;
     private double lWall;
+
+    private int maxX;
+    private int maxY;
+
     private int budget;
     private Evaluate evaluate;
 
@@ -76,5 +80,21 @@ public class Canteen {
 
     public double getlWall() {
         return lWall;
+    }
+
+    public int getMaxX() {
+        return maxX;
+    }
+
+    public void setMaxX(int maxX) {
+        this.maxX = maxX;
+    }
+
+    public int getMaxY() {
+        return maxY;
+    }
+
+    public void setMaxY(int maxY) {
+        this.maxY = maxY;
     }
 }
