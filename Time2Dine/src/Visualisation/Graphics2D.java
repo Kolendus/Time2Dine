@@ -16,20 +16,27 @@ public class Graphics2D extends JPanel {
     private BufferedImage lamp= null;
     private BufferedImage bench= null;
 
+    private BufferedImage savePicture;
+
     public Graphics2D() {
         this.setVisible(true);
 
         try {
-            chair = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD"+" "+"Projekt\\Time2Dine\\src\\ComponentsImage\\chair.png"));
-            table4 = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD"+" "+"Projekt\\Time2Dine\\src\\ComponentsImage\\4Table.png"));
-            table6 = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD"+" "+"Projekt\\Time2Dine\\src\\ComponentsImage\\6Table.png"));
-            table8 = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD"+" "+"Projekt\\Time2Dine\\src\\ComponentsImage\\8Table.png"));
-            lamp = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD"+" "+"Projekt\\Time2Dine\\src\\ComponentsImage\\lamp.png"));
-            bench = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD"+" "+"Projekt\\Time2Dine\\src\\ComponentsImage\\benchSmall.png"));
+            chair = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\chair.png"));
+            table4 = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\4Table.png"));
+            table6 = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\6Table.png"));
+            table8 = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\8Table.png"));
+            lamp = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\lamp.png"));
+            bench = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\benchSmall.png"));
         } catch (IOException e) {
             System.out.println("Nie znaleziono obrazka!");
         }
+        this.setBounds(6,6,586,506);
 
+        savePicture = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_ARGB);
+        Graphics g = savePicture.createGraphics();
+        this.paint(g);
+        g.dispose();
         repaint();
     }
 
@@ -76,17 +83,17 @@ public class Graphics2D extends JPanel {
 
       //  drawRotate(chair,180,150,150,g,1,1);
         //drawRotate(chair,270,150,150,g,1,1);
-        drawRotate(chair,0,27,30,g,0.4,0.4);
-        drawRotate(chair,0,52,30,g,0.4,0.4);
-        drawRotate(chair,0,77,30,g,0.4,0.4);
-        drawRotate(chair,0,102,30,g,0.4,0.4);
-        drawRotate(chair,0,127,30,g,0.4,0.4);
-        drawRotate(chair,0,152,30,g,0.4,0.4);
-        drawRotate(chair,0,177,30,g,0.4,0.4);
-        drawRotate(chair,0,202,30,g,0.4,0.4);
-        drawRotate(bench,0,23,55,g,0.7,0.7);
-        drawRotate(bench,0,121,55,g,0.7,0.7);
-        drawRotate(lamp,0,200,200,g,0.6,0.6);
+        drawRotate(chair,0,27,30,g,1,1);
+        drawRotate(chair,0,52,30,g,1,1);
+        drawRotate(chair,0,77,30,g,1,1);
+        drawRotate(chair,0,102,30,g,1,1);
+        drawRotate(chair,0,127,30,g,1,1);
+        drawRotate(chair,0,152,30,g,1,1);
+        drawRotate(chair,0,177,30,g,1,1);
+        drawRotate(chair,0,202,30,g,1,1);
+        drawRotate(bench,0,23,55,g,1,1);
+        drawRotate(bench,0,121,55,g,1,1);
+        drawRotate(lamp,0,200,200,g,1,1);
 
     }
     private static void drawRotate(BufferedImage img, double angle , int locationX, int locationY,Graphics g, double xScale, double yScale){
@@ -94,5 +101,9 @@ public class Graphics2D extends JPanel {
         tx.scale(xScale,yScale);
         AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
         g.drawImage(op.filter(img, null), locationX, locationY, null);
+    }
+
+    public BufferedImage getSavePicture() {
+        return savePicture;
     }
 }
