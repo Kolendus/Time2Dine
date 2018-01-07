@@ -103,6 +103,23 @@ public class Graphics2D extends JPanel {
         g.drawImage(op.filter(img, null), locationX, locationY, null);
     }
 
+    /*Błąd w rzędu  <= 0,5%
+    Punkt startu (10,10)
+    */
+    private static void drawCanteen(Canteen canteen, Graphics g) {
+        double meterToPixel = 37.74;
+        int point2 = (int) (meterToPixel * canteen.gettWall() + 10);
+        int point3 = (int) ((meterToPixel * (canteen.getlWall() - canteen.getrWall())) + 10);
+        int point4 = (int) (Math.abs(meterToPixel * (canteen.getbWall() - canteen.gettWall())) + point2);
+        int point5 = (int) (Math.abs(meterToPixel * (canteen.getrWall())) + point3);
+        int yBorderPoly[] = {10, 10, point3, point3, point5, point5};
+        int xBorderPoly[] = {10, point2, point2, point4, point4, 10};
+        Polygon borderPoly = new Polygon(xBorderPoly, yBorderPoly, xBorderPoly.length);
+        g.setColor(Color.BLACK);
+        g.drawPolygon(borderPoly);
+    }
+
+
     public BufferedImage getSavePicture() {
         return savePicture;
     }
