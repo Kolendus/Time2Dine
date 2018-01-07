@@ -19,16 +19,11 @@ public class Algorithm implements INAlgorithm {
     public ArrayList<Chromosome> generateChromosomes(Canteen canteen, int numberOfChromosomes) {
         ArrayList<Chromosome> chromosomes = new ArrayList<>();
         for(int i = 0; i < numberOfChromosomes; i++) {
-            Chromosome chromosome = new Chromosome();
-            addFurnituresToChromosome(chromosome,canteen);
+            Chromosome chromosome = new Chromosome(canteen);
             evaluate.evaluate(chromosome);
             chromosomes.add(chromosome);
         }
         return chromosomes;
     }
 
-
-    private void addFurnituresToChromosome(Chromosome chromosome, Canteen canteen){
-        /** There will be function which adds furnitures to chromosome **/
-    }
 }
