@@ -2,13 +2,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Canteen {
+    public static final double PIXEL_TO_METER = 0.0265;
+
     private double bWall;
     private double tWall;
     private double rWall;
     private double lWall;
 
-    private int maxX;
-    private int maxY;
+    private int maxPixelX;
+    private int maxPixelY;
 
     private int budget;
     private Evaluate evaluate;
@@ -32,6 +34,10 @@ public class Canteen {
         this.tWall = tWall;
         this.rWall = rWall;
         this.lWall = lWall;
+
+        maxPixelX = getInPixels(bWall);
+        maxPixelY = getInPixels(lWall);
+
         return validateWallsPerimeters();
     }
 
@@ -82,19 +88,20 @@ public class Canteen {
         return lWall;
     }
 
-    public int getMaxX() {
-        return maxX;
+    public int getInPixels(double wallLength) {
+        return (int) (wallLength * PIXEL_TO_METER);
     }
 
-    public void setMaxX(int maxX) {
-        this.maxX = maxX;
+    public int getMaxPixelX() {
+        return maxPixelX;
     }
 
-    public int getMaxY() {
-        return maxY;
+    public int getMaxPixelY() {
+        return maxPixelY;
     }
 
-    public void setMaxY(int maxY) {
-        this.maxY = maxY;
+    public int getMaxPixelX(int pixelY) {
+        return pixelY > lWall - rWall ? getInPixels(bWall) : getInPixels(bWall-tWall);
     }
+
 }
