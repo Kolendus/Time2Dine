@@ -1,4 +1,36 @@
 public enum FurnitureEnum {
-    DOOR,SWINDOW,DWINDOW,ONEPTABLE,TWOPTABLE,FOURPTABLE,SIXPTABLE,SMALLCHAIR,BIGCHAIR,
-    SMALLBENCH,BIGBENCH,LOWILUM,MEDILUM,STRONGILUM
+    DOOR,SWINDOW,DWINDOW,FOURPTABLE,SIXPTABLE,EIGHTPTABLE,SMALLCHAIR,BIGCHAIR,
+    SMALLBENCH,BIGBENCH,LOWILUM,MEDILUM,STRONGILUM;
+
+
+
+    public int getWidth(FurnitureEnum furEnum){
+            switch(furEnum){
+                case FOURPTABLE: return 34;
+                case SIXPTABLE: return 56;
+                case EIGHTPTABLE: return 34;
+                case SMALLCHAIR: return 75;
+                case SMALLBENCH: return 99;
+                case BIGBENCH: return 198;
+                case LOWILUM: return 18;
+            }
+            return -1;
+        }
+
+    public int getHeight(FurnitureEnum furEnum){
+        switch(furEnum){
+            case FOURPTABLE: return 34;
+            case SIXPTABLE: return 34;
+            case EIGHTPTABLE: return 41;
+            case SMALLCHAIR: return 22;
+            case SMALLBENCH: return 32;
+            case BIGBENCH: return 32;
+            case LOWILUM: return 18;
+        }
+        return -1;
+    }
+
 }
+
+
+
