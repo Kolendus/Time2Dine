@@ -38,4 +38,8 @@ public class Furniture {
     public int getY1Position() {
         return y1Position;
     }
+
+    public FurnitureEnum getKey() {
+        return key;
+    }
 }
