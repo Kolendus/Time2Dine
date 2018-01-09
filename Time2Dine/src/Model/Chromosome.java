@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Chromosome {
@@ -14,9 +15,11 @@ public class Chromosome {
         this.chromosomeArray = new ArrayList<>();
         this.cost = 0;
         canteenMap = new boolean[canteen.getMaxPixelX()][canteen.getMaxPixelY()];
+        Arrays.fill(canteenMap, false);
         fillChromosome(canteen);
     }
 
+    // ----------------------------- Main algorithm making chromosome -----------------------------
     public void fillChromosome(Canteen canteen) {
 
         ArrayList<Furniture> furnitureList = new ArrayList<>(); // I will draw only in this array, not sure if every furniture should have same chance. If so, we need also another set/list.
@@ -27,7 +30,8 @@ public class Chromosome {
                 for (int x = 0; x < canteen.getMaxPixelX(y); y++) {
                     for (FurnitureEnum furnitureEnum : FurnitureEnum.values()) {
                         if (checkPosition(x, y, furnitureEnum)) {
-                            furnitureList.add(new Furniture(furnitureEnum, x, y)); // Using bad constructor to furniture but maybe furniture class should know by itself which will be x2 and y2?
+                            updatePosition(x, y, furnitureEnum);
+                            furnitureList.add(new Furniture(furnitureEnum, x, y));
                         }
                     }
                 }
@@ -42,13 +46,26 @@ public class Chromosome {
         furnituresToBytes(canteen);
     }
 
+    // ----------------------------- Helping functions -----------------------------
     private boolean checkPosition(int x, int y, FurnitureEnum furnitureEnum) {
-        // <------------------------------- TO DO -------------------------------------------------->
+        // <------------------------------- TODO -------------------------------------------------->
+        // Case for every furniture
+
+        for (int xPos = x; xPos < x + furnitureEnum.getWidth(furnitureEnum); xPos++) {
+            for (int yPos = y; yPos < y + furnitureEnum.getHeight(furnitureEnum); yPos++) {
+                if (canteenMap[xPos][yPos])
+                    return false;
+            }
+        }
         return true;
     }
 
-    public void addFurniture(Furniture furniture) {
-        furList.add(furniture);
+    private void updatePosition(int x, int y, FurnitureEnum furnitureEnum) {
+        for (int xPos = x; xPos < x + furnitureEnum.getWidth(furnitureEnum); xPos++) {
+            for (int yPos = y; yPos < y + furnitureEnum.getHeight(furnitureEnum); yPos++) {
+                canteenMap[xPos][yPos] = true;
+            }
+        }
     }
 
     public void furnituresToBytes(Canteen canteen) {
@@ -65,15 +82,22 @@ public class Chromosome {
     }
 
     public int kindOfFurniture(Furniture fur) {
-        // <------------------------------- TO DO -------------------------------------------------->
-        return 1;
+        return fur.getKey().getNumberOfFurniture(fur.getKey());
     }
 
     public void fillBinaryChromosomeList(int number) {
-        // <------------------------------- TO DO -------------------------------------------------->;
+        String binaryString = Integer.toBinaryString(number);
+        for (int i = binaryString.length() - 1; i >= 0; i--) {
+            boolean elementToAdd = binaryString.indexOf(i) == 1 ? true : false;
+            chromosomeArray.add(elementToAdd);
+        }
     }
 
     public void setEvaluationPoints(double evaluationPoints) {
         this.evaluationPoints = evaluationPoints;
+    }
+
+    public void addFurniture(Furniture furniture) {
+        furList.add(furniture);
     }
 }
