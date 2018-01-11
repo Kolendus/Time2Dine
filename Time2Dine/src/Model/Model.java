@@ -8,18 +8,25 @@ public class Model {
         this.algorithm = new Algorithm();
     }
 
-    public Canteen createCanteen(double bWall, double tWall, double rWall, double lWall){
+    public Canteen createCanteen(double bWall, double tWall, double rWall, double lWall) {
         Canteen canteen = new Canteen();
         //In case parameters are wrong
-        if(!canteen.setWalls(bWall,tWall,rWall,lWall)){
+        if (!canteen.setWalls(bWall, tWall, rWall, lWall)) {
             return null;
         }
         return canteen;
     }
 
-     public ArrayList<Chromosome> createPopulation(Canteen canteen) {
-         return algorithm.generateChromosomes(canteen,100);
-     }
+    public ArrayList<Chromosome> createPopulation(Canteen canteen) {
+        return algorithm.generateChromosomes(canteen, 100);
+    }
 
+    public void crossBreed(ArrayList<Chromosome> chromosomes) {
+        algorithm.crossBreed(chromosomes);
+    }
+
+    public void mutate(ArrayList<Chromosome> chromosomes) {
+        algorithm.mutate(chromosomes);
+    }
 
 }

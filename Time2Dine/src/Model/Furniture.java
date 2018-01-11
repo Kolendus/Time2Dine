@@ -6,11 +6,6 @@ public class Furniture {
     private int x2Position;
     private int y2Position;
     private double furCost;
-    /*Here i have not really thought about "size" of the furniture. I mean
-    if we are generating  chromosome, positions generated through that method
-    should indicate the size of the table , chair etc, and they should be the same
-    I think we can skip creating variable concerning the size problem.
-     */
 
     public Furniture(FurnitureEnum key, int x1Position, int y1Position, int x2Position, int y2Position, double furCost) {
         this.key = key;

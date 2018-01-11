@@ -15,21 +15,14 @@ public class Canteen {
     private int budget;
     private Evaluate evaluate;
 
+    private Map<String, Double> costs;
 
-    /*I thought that it would be better if we used a Map
-        interface for costs, cause there will be hella lot of them
-        we can get them by specifying key value for example:
-        One-person table - "1ptable" etc
-        i guess its better than having 12323 variables
-         */
-    private Map<String,Double > costs;
-
-    public Canteen(){
+    public Canteen() {
         costs = new HashMap<>();
         evaluate = new Evaluate();
     }
 
-    public boolean setWalls(double bWall, double tWall, double rWall, double lWall){
+    public boolean setWalls(double bWall, double tWall, double rWall, double lWall) {
         this.bWall = bWall;
         this.tWall = tWall;
         this.rWall = rWall;
@@ -41,10 +34,11 @@ public class Canteen {
         return validateWallsPerimeters();
     }
 
-    public void setCost(String key, double value){
-        costs.put(key,value);
+    public void setCost(String key, double value) {
+        costs.put(key, value);
     }
-    public double getCost(String key){
+
+    public double getCost(String key) {
         return costs.get(key);
     }
 
@@ -54,11 +48,11 @@ public class Canteen {
     supposed to be school diner duh. In addition bWall has to be bigger than tWall
     to avoid not creating L-shaped canteen
      */
-    public boolean validateWallsPerimeters(){
-        double leftArea,rightArea;
-        leftArea = lWall*tWall;
-        rightArea = (bWall-tWall)*rWall;
-        if(leftArea < 18 || rightArea < 18 ){
+    public boolean validateWallsPerimeters() {
+        double leftArea, rightArea;
+        leftArea = lWall * tWall;
+        rightArea = (bWall - tWall) * rWall;
+        if (leftArea < 18 || rightArea < 18) {
             return false;
         }
         return true;
@@ -101,7 +95,7 @@ public class Canteen {
     }
 
     public int getMaxPixelX(int pixelY) {
-        return pixelY > lWall - rWall ? getInPixels(bWall) : getInPixels(bWall-tWall);
+        return pixelY > lWall - rWall ? getInPixels(bWall) : getInPixels(bWall - tWall);
     }
 
 }

@@ -24,15 +24,8 @@ public class Controller {
         this.canteen.setCost(key,cost);
     }
 
-    /*
-    public void crossBreed(){
-        algorithm.crossBreed(chromosomes);
-    }
-    public void mutate(){
-        algorithm.mutate(chromosomes); //Maybe we should change Chromosome [] chromosomes
-        into an actual ArrayList? i guess it will be easier and more efficient
-        in the long run
-    }
-    */
+
+
+
 
 }

@@ -65,8 +65,6 @@ public class Graphics2D extends JPanel {
 
         g.setColor(Color.BLACK);
         g.drawPolygon(borderPoly);
-        // g.setColor(Color.YELLOW);
-        //  g.fillPolygon(filledPoly);
 
         drawRotate(chair, 0, 27, 30, g, 1, 1);
         drawRotate(chair, 0, 52, 30, g, 1, 1);

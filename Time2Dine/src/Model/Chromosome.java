@@ -22,7 +22,7 @@ public class Chromosome {
     // ----------------------------- Main algorithm making chromosome -----------------------------
     public void fillChromosome(Canteen canteen) {
 
-        ArrayList<Furniture> furnitureList = new ArrayList<>(); // I will draw only in this array, not sure if every furniture should have same chance. If so, we need also another set/list.
+        ArrayList<Furniture> furnitureList = new ArrayList<>();
         Random random = new Random();
 
         while (cost <= canteen.getBudget()) {
