@@ -20,14 +20,13 @@ public class Graphics2D extends JPanel {
 
     public Graphics2D() {
         this.setVisible(true);
-
         try {
-            chair = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\chair.png"));
-            table4 = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\4Table.png"));
-            table6 = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\6Table.png"));
-            table8 = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\8Table.png"));
-            lamp = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\lamp.png"));
-            bench = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\benchSmall.png"));
+            chair = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD_Projekt\\Time2Dine\\src\\ComponentsImage\\chair.png"));
+            table4 = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD_Projekt\\Time2Dine\\src\\ComponentsImage\\4Table.png"));
+            table6 = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD_Projekt\\Time2Dine\\src\\ComponentsImage\\6Table.png"));
+            table8 = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD_Projekt\\Time2Dine\\src\\ComponentsImage\\8Table.png"));
+            lamp = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD_Projekt\\Time2Dine\\src\\ComponentsImage\\lamp.png"));
+            bench = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD_Projekt\\Time2Dine\\src\\ComponentsImage\\benchSmall.png"));
         } catch (IOException e) {
             System.out.println("Nie znaleziono obrazka!");
         }
@@ -65,7 +64,7 @@ public class Graphics2D extends JPanel {
 
         g.setColor(Color.BLACK);
         g.drawPolygon(borderPoly);
-
+        drawRotate(table8,0,0,0,g,1,1);
         drawRotate(chair, 0, 27, 30, g, 1, 1);
         drawRotate(chair, 0, 52, 30, g, 1, 1);
         drawRotate(chair, 0, 77, 30, g, 1, 1);

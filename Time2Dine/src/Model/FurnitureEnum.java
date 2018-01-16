@@ -8,8 +8,8 @@ public enum FurnitureEnum {
             switch(furEnum){
                 case FOURPTABLE: return 34;
                 case SIXPTABLE: return 56;
-                case EIGHTPTABLE: return 34;
-                case SMALLCHAIR: return 75;
+                case EIGHTPTABLE: return 75;
+                case SMALLCHAIR: return 18;
                 case SMALLBENCH: return 99;
                 case BIGBENCH: return 198;
                 case LOWILUM: return 18;

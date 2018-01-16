@@ -29,7 +29,7 @@ public class Chromosome {
             for (int y = 0; y < canteen.getMaxPixelY(); y++) {
                 for (int x = 0; x < canteen.getMaxPixelX(y); y++) {
                     for (FurnitureEnum furnitureEnum : FurnitureEnum.values()) {
-                        if (checkPosition(x, y, furnitureEnum)) {
+                        if (checkPosition(x, y, furnitureEnum,canteen)) {
                             updatePosition(x, y, furnitureEnum);
                             furnitureList.add(new Furniture(furnitureEnum, x, y));
                         }
@@ -47,7 +47,7 @@ public class Chromosome {
     }
 
     // ----------------------------- Helping functions -----------------------------
-    private boolean checkPosition(int x, int y, FurnitureEnum furnitureEnum) {
+    private boolean checkPosition(int x, int y, FurnitureEnum furnitureEnum,Canteen canteen) {
         // <------------------------------- TODO -------------------------------------------------->
         // Case for every furniture
 
@@ -75,6 +75,35 @@ public class Chromosome {
             fillBinaryChromosomeList(fur.getX1Position());  //9 bytes
             fillBinaryChromosomeList(fur.getY1Position());  //9 bytes
         }
+    }
+
+    private boolean checkIfTablesAreNearby(int x, int y, boolean[][] canteenMap, FurnitureEnum furnitureEnum,Canteen canteen) {
+        boolean canFitTheTable = false;
+        //wspolrzedne lewego górnego rogu sprawdzanego kwadratu
+        int searchStartX = x - 62;
+        int searchStartY = y - 62;
+        //wspolrzedne prawego dolnego rogu sprawdzanego kwadratu
+        int p = x + furnitureEnum.getWidth(furnitureEnum) + 62;
+        int d = y + furnitureEnum.getHeight(furnitureEnum) + 62;
+        //górna i dolna linia "kwadratu". Dodaje 62 bo zakladam ze 1 piksel odstepu od stolu dla krzesel, czyli stoly od siebie 21pikseli x2 plus przejscie 20 pikseli
+        for (int j = searchStartX; j < p; j++) {
+            if ( ( j < 0  || j > canteen.getMaxPixelX(searchStartY)) || (searchStartY < 0) ) {
+                continue;//nic nie robimy, jestesmy poza stołówką
+            }   /*lewy górny punkt startu*/                 /*lewy dolny punkt startu*/
+            if ((canteenMap[j][searchStartY] == true) || (canteenMap[j][d] == true)) {
+                return false;//sprawdzamy górną linię i dolną
+            }
+        }
+        //boczne kwadratu
+        for (int j = searchStartY; j < d; j++) {
+            if ( (j < 0 || j > canteen.getMaxPixelY(/*searchStartX*/) ) || (searchStartX < 0)) {
+                continue ;//nic nie robimy, jestesmy poza stołówką
+            }
+            if ((canteenMap[searchStartX][j] == true) || (canteenMap[p][j] == true) ) {
+                return false;//sprawdzamy lewą linię
+            }
+        }
+        return true;
     }
 
     public int squareOfFurniture(Canteen canteen, Furniture furniture) {
