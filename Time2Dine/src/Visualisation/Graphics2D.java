@@ -16,8 +16,8 @@ public class Graphics2D extends JPanel {
     private BufferedImage table8 = null;
     private BufferedImage lamp = null;
     private BufferedImage bench = null;
-    private Canteen canteen;
-    private Chromosome chromosome;
+    private Canteen canteen = null;
+    private Chromosome chromosome = null;
 
     private BufferedImage savePicture;
 
@@ -25,15 +25,11 @@ public class Graphics2D extends JPanel {
         this();
         this.canteen = canteen;
         this.chromosome = chromosome;
-        this.setBounds(6, 6, 586, 506);
 
+        this.setBounds(6, 6, 586, 586);
         savePicture = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_ARGB);
         Graphics g = savePicture.createGraphics();
-
         this.setVisible(true);
-        this.paint(g);
-        g.dispose();
-        repaint();
     }
 
     public Graphics2D() {
@@ -49,47 +45,16 @@ public class Graphics2D extends JPanel {
         }
     }
 
-    public void visualize(Chromosome chromosome) {
-
-    }
-
     @Override
     public void paintComponent(Graphics g) {
         this.setBackground(Color.WHITE);
-        this.setBounds(6, 6, 586, 506);
         super.paintComponent(g);
-
-        /*int point1 = 0;
-        int point2 = 250;
-        int point3 = 400;
-        int dt = 1; //cause of line thickness, needed to fill polygon properly
-
-        int yBorderPoly[] = {point1, point1, point2, point2, point3, point3};
-        int xBorderPoly[] = {point1, point2, point2, point3, point3, point1};
-        Polygon borderPoly = new Polygon(xBorderPoly, yBorderPoly, xBorderPoly.length);
-
-        int yFilledPoly[] = {point1 + dt, point1 + dt, point2 + dt, point2 + dt, point3 - dt, point3 - dt};
-        int xFilledPoly[] = {point1 + dt, point2 - dt, point2 - dt, point3 - dt, point3 - dt, point1 + dt};
-        Polygon filledPoly = new Polygon(xFilledPoly, yFilledPoly, xFilledPoly.length);
-
-        g.setColor(Color.BLACK);
-        g.drawPolygon(borderPoly);*/
-
-        drawCanteen(g);
-        drawFurnitures(g);
-
-        /*drawRotate(chair, 0, 27, 30, g, 1, 1);
-        drawRotate(chair, 0, 52, 30, g, 1, 1);
-        drawRotate(chair, 0, 77, 30, g, 1, 1);
-        drawRotate(chair, 0, 102, 30, g, 1, 1);
-        drawRotate(chair, 0, 127, 30, g, 1, 1);
-        drawRotate(chair, 0, 152, 30, g, 1, 1);
-        drawRotate(chair, 0, 177, 30, g, 1, 1);
-        drawRotate(chair, 0, 202, 30, g, 1, 1);
-        drawRotate(bench, 0, 23, 55, g, 1, 1);
-        drawRotate(bench, 0, 121, 55, g, 1, 1);
-        drawRotate(lamp, 0, 200, 200, g, 1, 1);*/
-
+        try {
+            drawCanteen(g);
+            drawFurnitures(g);
+        } catch (NullPointerException ex) {
+            repaint();
+        }
     }
 
     private void drawFurnitures(Graphics g) {

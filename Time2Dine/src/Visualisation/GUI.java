@@ -5,19 +5,18 @@ import java.io.File;
 
 public class GUI extends javax.swing.JFrame {
 
-    private Graphics2D graphics;
+    private Controller controller;
 
     public GUI() {
-        initComponents();
-
-        Controller controller = new Controller();
+        controller = new Controller();
         controller.createCanteen(10,10,10,10, 100);
 
         System.out.println(controller.getCanteen().gettWall());
         controller.createPopulation();
 
-        graphics = new Graphics2D(controller.getCanteen(),controller.getBestChromosome());
-        this.add(graphics);
+        initComponents();
+
+
     }
 
     @SuppressWarnings("unchecked")
@@ -111,7 +110,7 @@ public class GUI extends javax.swing.JFrame {
         jBigBenchPriceLabel = new javax.swing.JLabel();
         jBigBenchPriceField = new javax.swing.JTextField();
         jBigBenchDollarLabel = new javax.swing.JLabel();
-        jDisplayPanel = new Graphics2D();
+        jDisplayPanel = new Graphics2D(controller.getCanteen(),controller.getBestChromosome());
         jStopButton = new javax.swing.JButton();
         jStartButton = new javax.swing.JButton();
         jAlgorithmSettingsLabel = new javax.swing.JLabel();
@@ -1139,7 +1138,7 @@ public class GUI extends javax.swing.JFrame {
             File fileToSave = fileChooser.getSelectedFile();
             if(fileToSave.getName().toLowerCase().endsWith(".png")) {
                 try {
-                    ImageIO.write(graphics.getSavePicture(), "png", fileToSave);
+                    ImageIO.write(jDisplayPanel.getSavePicture(), "png", fileToSave);
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(new JFrame(),
                             "Can't save picture!",
@@ -1332,7 +1331,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jCrossbreadRatioField;
     private javax.swing.JLabel jCrossbreadRatioLabel;
     private javax.swing.JSlider jCrossbreadRatioSlider;
-    private javax.swing.JPanel jDisplayPanel;
+    private Graphics2D jDisplayPanel;
     private javax.swing.JLabel jDoorDollarLabel;
     private javax.swing.JPanel jDoorWindowPanel;
     private javax.swing.JLabel jDoorsLabel;
