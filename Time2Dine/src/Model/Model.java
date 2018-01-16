@@ -8,8 +8,8 @@ public class Model {
         this.algorithm = new Algorithm();
     }
 
-    public Canteen createCanteen(double bWall, double tWall, double rWall, double lWall) {
-        Canteen canteen = new Canteen();
+    public Canteen createCanteen(double bWall, double tWall, double rWall, double lWall, int budget) {
+        Canteen canteen = new Canteen(budget);
         //In case parameters are wrong
         if (!canteen.setWalls(bWall, tWall, rWall, lWall)) {
             return null;
@@ -18,7 +18,7 @@ public class Model {
     }
 
     public ArrayList<Chromosome> createPopulation(Canteen canteen) {
-        return algorithm.generateChromosomes(canteen, 100);
+        return algorithm.generateChromosomes(canteen, 1);
     }
 
     public void crossBreed(ArrayList<Chromosome> chromosomes) {

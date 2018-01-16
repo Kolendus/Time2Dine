@@ -22,6 +22,13 @@ public class Furniture {
         this.y1Position = y1Position;
     }
 
+    public Furniture(FurnitureEnum key, int x1Position, int y1Position, int furCost) {
+        this.key = key;
+        this.x1Position = x1Position;
+        this.y1Position = y1Position;
+        this.furCost = furCost;
+    }
+
     public double getFurCost() {
         return furCost;
     }

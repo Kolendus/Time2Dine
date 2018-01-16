@@ -23,13 +23,15 @@ public class Chromosome {
         ArrayList<Furniture> furnitureList = new ArrayList<>();
         Random random = new Random();
 
-        while (cost <= canteen.getBudget()) {
+        while (cost < canteen.getBudget()) {
+            furnitureList.clear();
+            System.out.println(cost + " " + canteen.getBudget());
             for (int y = 0; y < canteen.getMaxPixelY(); y++) {
-                for (int x = 0; x < canteen.getMaxPixelX(y); y++) {
+                for (int x = 0; x < canteen.getMaxPixelX(y); x++) {
                     for (FurnitureEnum furnitureEnum : FurnitureEnum.values()) {
                         if (checkPosition(x, y, furnitureEnum,canteen)) {
                             updatePosition(x, y, furnitureEnum);
-                            furnitureList.add(new Furniture(furnitureEnum, x, y));
+                            furnitureList.add(new Furniture(furnitureEnum, x, y,10));
                         }
                     }
                 }
@@ -49,10 +51,9 @@ public class Chromosome {
         // <------------------------------- TODO -------------------------------------------------->
         // Case for every furniture
         // condtion when furniture pos is out of canteen
-
         for (int xPos = x; xPos < x + furnitureEnum.getWidth(furnitureEnum); xPos++) {
             for (int yPos = y; yPos < y + furnitureEnum.getHeight(furnitureEnum); yPos++) {
-                if (canteenMap[xPos][yPos])
+                if (canteenMap.length <= xPos || canteenMap.length <= yPos || canteenMap[xPos][yPos])
                     return false;
             }
         }

@@ -17,9 +17,10 @@ public class Canteen {
 
     private Map<String, Double> costs;
 
-    public Canteen() {
+    public Canteen(int budget) {
         costs = new HashMap<>();
         evaluate = new Evaluate();
+        this.budget = budget;
     }
 
     public boolean setWalls(double bWall, double tWall, double rWall, double lWall) {

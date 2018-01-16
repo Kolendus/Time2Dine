@@ -6,6 +6,7 @@ import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Graphics2D extends JPanel {
 
@@ -28,14 +29,14 @@ public class Graphics2D extends JPanel {
 
         savePicture = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_ARGB);
         Graphics g = savePicture.createGraphics();
+
+        this.setVisible(true);
         this.paint(g);
         g.dispose();
         repaint();
     }
 
     public Graphics2D() {
-        this.setVisible(true);
-
         try {
             chair = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\chair.png"));
             table4 = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\4Table.png"));
@@ -92,8 +93,9 @@ public class Graphics2D extends JPanel {
     }
 
     private void drawFurnitures(Graphics g) {
-        for(Furniture f : chromosome.getFurList()) {
-            BufferedImage img = null;
+        ArrayList<Furniture> furList = chromosome.getFurList();
+        for(Furniture f : furList) {
+            BufferedImage img = chair;
             switch(f.getKey().name()){
                 case "FOURPTABLE": img = table4; break;
                 case "SIXPTABLE": img = table6; break;
