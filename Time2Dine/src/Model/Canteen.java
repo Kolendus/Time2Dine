@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Canteen {
-    public static final double PIXEL_TO_METER = 0.0265;
+    public static final double METER_TO_PIXEL = 37.74;
 
     private double bWall;
     private double tWall;
@@ -31,7 +31,8 @@ public class Canteen {
         maxPixelX = getInPixels(bWall);
         maxPixelY = getInPixels(lWall);
 
-        return validateWallsPerimeters();
+        //return validateWallsPerimeters();
+        return true;
     }
 
     public void setCost(String key, double value) {
@@ -83,7 +84,7 @@ public class Canteen {
     }
 
     public int getInPixels(double wallLength) {
-        return (int) (wallLength * PIXEL_TO_METER);
+        return (int) (wallLength * METER_TO_PIXEL);
     }
 
     public int getMaxPixelX() {
