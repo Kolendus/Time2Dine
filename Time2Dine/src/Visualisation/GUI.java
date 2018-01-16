@@ -9,6 +9,11 @@ public class GUI extends javax.swing.JFrame {
 
     public GUI() {
         initComponents();
+
+        Controller controller = new Controller();
+        controller.createCanteen(30,30,30,30);
+        controller.createPopulation();
+
         graphics = new Graphics2D();
         this.add(graphics);
     }
