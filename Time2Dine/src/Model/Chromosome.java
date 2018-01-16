@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class Chromosome {
@@ -14,8 +13,7 @@ public class Chromosome {
         this.furList = new ArrayList<>();
         this.chromosomeArray = new ArrayList<>();
         this.cost = 0;
-        canteenMap = new boolean[canteen.getMaxPixelX()][canteen.getMaxPixelY()];
-        Arrays.fill(canteenMap, false);
+        initCanteenMap(canteen);
         fillChromosome(canteen);
     }
 
@@ -50,6 +48,7 @@ public class Chromosome {
     private boolean checkPosition(int x, int y, FurnitureEnum furnitureEnum,Canteen canteen) {
         // <------------------------------- TODO -------------------------------------------------->
         // Case for every furniture
+        // condtion when furniture pos is out of canteen
 
         for (int xPos = x; xPos < x + furnitureEnum.getWidth(furnitureEnum); xPos++) {
             for (int yPos = y; yPos < y + furnitureEnum.getHeight(furnitureEnum); yPos++) {
@@ -128,5 +127,18 @@ public class Chromosome {
 
     public void addFurniture(Furniture furniture) {
         furList.add(furniture);
+    }
+
+    public ArrayList<Furniture> getFurList() {
+        return furList;
+    }
+
+    public void initCanteenMap(Canteen canteen) {
+        canteenMap = new boolean[canteen.getMaxPixelX()][canteen.getMaxPixelY()];
+        for(int i = 0; i < canteen.getMaxPixelX(); i++) {
+            for(int j = 0; j < canteen.getMaxPixelY(); j++){
+                canteenMap[i][j] = false;
+            }
+        }
     }
 }
