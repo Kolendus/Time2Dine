@@ -11,7 +11,6 @@ public class GUI extends javax.swing.JFrame {
         controller = new Controller();
         controller.createCanteen(10,10,10,10, 100);
 
-        System.out.println(controller.getCanteen().gettWall());
         controller.createPopulation();
 
         initComponents();

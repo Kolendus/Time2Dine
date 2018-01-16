@@ -30,7 +30,6 @@ public class Chromosome {
                 for (int x = 0; x < canteen.getMaxPixelX(y); x++) {
                     for (FurnitureEnum furnitureEnum : FurnitureEnum.values()) {
                         if (checkPosition(x, y, furnitureEnum,canteen)) {
-                            updatePosition(x, y, furnitureEnum);
                             furnitureList.add(new Furniture(furnitureEnum, x, y,10));
                         }
                     }
@@ -39,6 +38,7 @@ public class Chromosome {
             if (!furnitureList.isEmpty()) {
                 Furniture furniture = furnitureList.get(random.nextInt(furnitureList.size()));
                 addFurniture(furniture);
+                updatePosition(furniture.getX1Position(), furniture.getY1Position(), furniture.getKey());
                 cost += furniture.getFurCost();
             } else break; // No place for any furniture
         }

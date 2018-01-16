@@ -16,7 +16,7 @@ public enum FurnitureEnum {
                 case MEDILUM: return 18;
                 case STRONGILUM: return 18;
             }
-            return -1;
+            return 100000;
         }
 
     public int getHeight(FurnitureEnum furEnum){
@@ -31,7 +31,7 @@ public enum FurnitureEnum {
             case MEDILUM: return 18;
             case STRONGILUM: return 18;
         }
-        return -1;
+        return 100000;
     }
 
     public int getNumberOfFurniture(FurnitureEnum furEnum){
@@ -41,7 +41,7 @@ public enum FurnitureEnum {
                 return counter;
             counter++;
         }
-        return -1;
+        return counter;
     }
 
 }

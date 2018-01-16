@@ -61,6 +61,7 @@ public class Graphics2D extends JPanel {
         ArrayList<Furniture> furList = chromosome.getFurList();
         for(Furniture f : furList) {
             BufferedImage img = chair;
+            System.out.println(f.getKey().name());
             switch(f.getKey().name()){
                 case "FOURPTABLE": img = table4; break;
                 case "SIXPTABLE": img = table6; break;
