@@ -1,8 +1,5 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.io.File;
-import java.util.IllegalFormatException;
 
 public class GUI extends javax.swing.JFrame {
 
@@ -106,8 +103,8 @@ public class GUI extends javax.swing.JFrame {
         jBigBenchPriceLabel = new javax.swing.JLabel();
         jBigBenchPriceField = new javax.swing.JTextField();
         jBigBenchDollarLabel = new javax.swing.JLabel();
-        jDisplayPanel = new javax.swing.JPanel();
-        //jDisplayPanel = new Graphics2D(controller.getCanteen(),controller.getBestChromosome());
+        //jDisplayPanel = new javax.swing.JPanel();
+        jDisplayPanel = new Graphics2D();
         jStopButton = new javax.swing.JButton();
         jStartButton = new javax.swing.JButton();
         jAlgorithmSettingsLabel = new javax.swing.JLabel();
@@ -1194,7 +1191,8 @@ public class GUI extends javax.swing.JFrame {
 
     private void jStartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartButtonActionPerformed
         controller.createPopulation();
-        jDisplayPanel = new Graphics2D(controller.getCanteen(),controller.getBestChromosome());
+        jDisplayPanel.setCanteen((controller.getCanteen()));
+        jDisplayPanel.setChromosome((controller.getBestChromosome()));
         jDisplayPanel.setVisible(true);
 
     }//GEN-LAST:event_jStartButtonActionPerformed
@@ -1354,7 +1352,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jCrossbreadRatioField;
     private javax.swing.JLabel jCrossbreadRatioLabel;
     private javax.swing.JSlider jCrossbreadRatioSlider;
-    private javax.swing.JPanel jDisplayPanel;
+    private Graphics2D jDisplayPanel;
     private javax.swing.JLabel jDoorDollarLabel;
     private javax.swing.JPanel jDoorWindowPanel;
     private javax.swing.JLabel jDoorsLabel;
