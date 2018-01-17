@@ -144,6 +144,10 @@ public class Chromosome implements Comparable<Chromosome> {
         }
     }
 
+    public double getEvaluationPoints() {
+        return evaluationPoints;
+    }
+
     @Override
     public int compareTo(Chromosome o) {
         return o.getEvaluationPoints() > this.getEvaluationPoints() ? 5 : -5;
