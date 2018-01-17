@@ -2,23 +2,19 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.util.IllegalFormatException;
 
 public class GUI extends javax.swing.JFrame {
 
     private Controller controller;
 
     public GUI() {
-        controller = new Controller();
-        controller.createCanteen(10,10,10,10, 100);
-
-        System.out.println(controller.getCanteen().gettWall());
-        controller.createPopulation();
-
+        initController();
         initComponents();
-
-
     }
-
+    private void initController(){
+        controller = new Controller();
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -110,7 +106,8 @@ public class GUI extends javax.swing.JFrame {
         jBigBenchPriceLabel = new javax.swing.JLabel();
         jBigBenchPriceField = new javax.swing.JTextField();
         jBigBenchDollarLabel = new javax.swing.JLabel();
-        jDisplayPanel = new Graphics2D(controller.getCanteen(),controller.getBestChromosome());
+        jDisplayPanel = new javax.swing.JPanel();
+        //jDisplayPanel = new Graphics2D(controller.getCanteen(),controller.getBestChromosome());
         jStopButton = new javax.swing.JButton();
         jStartButton = new javax.swing.JButton();
         jAlgorithmSettingsLabel = new javax.swing.JLabel();
@@ -1027,11 +1024,11 @@ public class GUI extends javax.swing.JFrame {
 
         jItemSavePNG.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jItemSavePNG.setText("Save to png...");
-        jItemSavePNG.addActionListener(new java.awt.event.ActionListener() {
+        /*jItemSavePNG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jItemSavePNG(evt);
             }
-        });
+        });*/
         jBarFile.add(jItemSavePNG);
 
         jItemExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
@@ -1125,8 +1122,30 @@ public class GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jItemSavePNG(ActionEvent evt) {
+    private void errorMessage (String msg){
+        JOptionPane.showMessageDialog(new JFrame(), msg, "Data input", JOptionPane.ERROR_MESSAGE);
+    }
+    private void loadCanteen(){
+        try {
+            int budget = Integer.parseInt(jTotalBudgetPriceField.getText());
+            double leftWall = Double.parseDouble(jLeftWallField.getText());
+            double rightWall = Double.parseDouble(jRightWallField.getText());
+            double botWall = Double.parseDouble(jBottomWallField.getText());
+            double topWall = Double.parseDouble(jTopWallField.getText());
+            System.out.println(budget + " "+leftWall + " "+ rightWall + " "+ topWall);
+            if(leftWall < 0 || rightWall < 0 || botWall < 0 || topWall < 0 || budget < 0){
+                errorMessage("Parameters cannot be negative.");
+            }
+            controller.createCanteen(botWall,topWall,rightWall,leftWall, budget);
+        }catch(NullPointerException e){
+            errorMessage("You need to input all data in correct fields");
+            return;
+        }catch(NumberFormatException e){
+            errorMessage("Illegal data type. Numbers expected");
+            return;
+        }
+    }
+   /* private void jItemSavePNG(ActionEvent evt) {
         JFrame parentFrame = new JFrame();
 
         JFileChooser fileChooser = new JFileChooser();
@@ -1155,7 +1174,7 @@ public class GUI extends javax.swing.JFrame {
             }
 
         }
-    }
+    }*/
 
     private void jItemExiActionPerformed(ActionEvent evt) {
         System.exit(0);
@@ -1174,7 +1193,11 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jItemHelpActionPerformed
 
     private void jStartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartButtonActionPerformed
-        // TODO add your handling code here:
+        controller.createPopulation();
+        jDisplayPanel = new Graphics2D(controller.getCanteen(),controller.getBestChromosome());
+        jDisplayPanel.show();
+        jDisplayPanel.setVisible(true);
+
     }//GEN-LAST:event_jStartButtonActionPerformed
 
     private void jTotalBudgetPriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTotalBudgetPriceFieldActionPerformed
@@ -1242,7 +1265,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMediumIllumiantionPriceFieldActionPerformed
 
     private void jCanteenSettingsSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCanteenSettingsSaveButtonActionPerformed
-
+        loadCanteen();
     }//GEN-LAST:event_jCanteenSettingsSaveButtonActionPerformed
 
     private void jCrossbreadRatioFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCrossbreadRatioFieldActionPerformed
@@ -1302,6 +1325,7 @@ public class GUI extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jAlgorithmSettingsLabel;
     private javax.swing.JPanel jAlgorithmSettingsPanel;
@@ -1331,7 +1355,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jCrossbreadRatioField;
     private javax.swing.JLabel jCrossbreadRatioLabel;
     private javax.swing.JSlider jCrossbreadRatioSlider;
-    private Graphics2D jDisplayPanel;
+    private javax.swing.JPanel jDisplayPanel;
     private javax.swing.JLabel jDoorDollarLabel;
     private javax.swing.JPanel jDoorWindowPanel;
     private javax.swing.JLabel jDoorsLabel;

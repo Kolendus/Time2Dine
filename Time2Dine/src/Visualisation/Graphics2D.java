@@ -34,17 +34,16 @@ public class Graphics2D extends JPanel {
 
     public Graphics2D() {
         try {
-            chair = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\chair.png"));
-            table4 = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\4Table.png"));
-            table6 = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\6Table.png"));
-            table8 = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\8Table.png"));
-            lamp = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\lamp.png"));
-            bench = ImageIO.read(new File("Time2Dine\\src\\ComponentsImage\\benchSmall.png"));
+            chair = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD_Projekt\\Time2Dine\\src\\ComponentsImage\\chair.png"));
+            table4 = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD_Projekt\\Time2Dine\\src\\ComponentsImage\\4Table.png"));
+            table6 = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD_Projekt\\Time2Dine\\src\\ComponentsImage\\6Table.png"));
+            table8 = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD_Projekt\\Time2Dine\\src\\ComponentsImage\\8Table.png"));
+            lamp = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD_Projekt\\Time2Dine\\src\\ComponentsImage\\lamp.png"));
+            bench = ImageIO.read(new File("C:\\Users\\Michał\\Desktop\\AiSD_Projekt\\Time2Dine\\src\\ComponentsImage\\benchSmall.png"));
         } catch (IOException e) {
             System.out.println("Nie znaleziono obrazka!");
         }
     }
-
     @Override
     public void paintComponent(Graphics g) {
         this.setBackground(Color.WHITE);
