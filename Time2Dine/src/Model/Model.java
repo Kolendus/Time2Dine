@@ -18,7 +18,7 @@ public class Model {
     }
 
     public ArrayList<Chromosome> createPopulation(Canteen canteen) {
-        return algorithm.generateChromosomes(canteen, 1);
+        return algorithm.generateChromosomes(canteen, 100);
     }
 
     public void crossBreed(ArrayList<Chromosome> chromosomes) {

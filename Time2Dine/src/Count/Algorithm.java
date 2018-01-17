@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Algorithm implements INAlgorithm {
 
@@ -23,6 +24,9 @@ public class Algorithm implements INAlgorithm {
             evaluate.evaluate(chromosome);
             chromosomes.add(chromosome);
         }
+
+        Collections.sort(chromosomes);
+
         return chromosomes;
     }
 

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Chromosome {
+public class Chromosome implements Comparable<Chromosome> {
     private ArrayList<Furniture> furList;
     private ArrayList<Boolean> chromosomeArray;
 
@@ -148,5 +148,10 @@ public class Chromosome {
                 canteenMap[i][j] = false;
             }
         }
+    }
+
+    @Override
+    public int compareTo(Chromosome o) {
+        return o.getEvaluationPoints() > this.getEvaluationPoints() ? 5 : -5;
     }
 }
