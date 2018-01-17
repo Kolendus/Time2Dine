@@ -8,6 +8,7 @@ public class Controller {
 
    public Controller() {
         theModel = new Model();
+        chromosomes = new ArrayList<>();
     }
 
     public void createCanteen(double bWall, double tWall, double rWall, double lWall, int budget){
