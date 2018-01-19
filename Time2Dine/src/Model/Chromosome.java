@@ -9,6 +9,10 @@ public class Chromosome implements Comparable<Chromosome> {
     private double evaluationPoints;
     boolean canteenMap[][]; // free place = false, occupied place = true
 
+    public Chromosome() {
+        ;
+    }
+
     public Chromosome(Canteen canteen) {
         this.furList = new ArrayList<>();
         this.chromosomeArray = new ArrayList<>();
@@ -25,22 +29,26 @@ public class Chromosome implements Comparable<Chromosome> {
 
         while (cost < canteen.getBudget()) {
             furnitureList.clear();
-            System.out.println(cost + " " + canteen.getBudget());
             for (int y = 0; y < canteen.getMaxPixelY(); y++) {
                 for (int x = 0; x < canteen.getMaxPixelX(y); x++) {
                     for (FurnitureEnum furnitureEnum : FurnitureEnum.values()) {
-                        if (checkPosition(x, y, furnitureEnum,canteen)) {
-                            updatePosition(x, y, furnitureEnum);
-                            furnitureList.add(new Furniture(furnitureEnum, x, y,10));
-                        }
+                        //if (checkPosition(x, y, furnitureEnum,canteen)) {
+                        furnitureList.add(new Furniture(furnitureEnum, x, y,10));
+                        //}
                     }
                 }
             }
             if (!furnitureList.isEmpty()) {
-                Furniture furniture = furnitureList.get(random.nextInt(furnitureList.size()));
-                System.out.println("Rysuję " + furniture.getKey());
-                addFurniture(furniture);
-                cost += furniture.getFurCost();
+                int wrongCounter = 0;
+                while(wrongCounter < 3 && cost < canteen.getBudget() ) {
+                    Furniture furniture = furnitureList.get(random.nextInt(furnitureList.size()));
+                    if(checkPosition(furniture.getX1Position(), furniture.getY1Position(), furniture.getKey(),canteen)) {
+                        wrongCounter = 0;
+                        addFurniture(furniture);
+                        updatePosition(furniture.getX1Position(), furniture.getY1Position(), furniture.getKey());
+                        cost += furniture.getFurCost();
+                    } else wrongCounter++;
+                }
             } else break; // No place for any furniture
         }
 
