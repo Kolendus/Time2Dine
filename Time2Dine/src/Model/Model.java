@@ -21,6 +21,10 @@ public class Model {
         return algorithm.generateChromosomes(canteen, 100);
     }
 
+    public ArrayList<Chromosome> nextGeneration(Canteen canteen, ArrayList<Chromosome> chromosomes, double mutationRatio, double crossRatio) {
+        return algorithm.createNextGeneration(canteen,chromosomes,mutationRatio,crossRatio);
+    }
+
     public void crossBreed(ArrayList<Chromosome> chromosomes) {
         algorithm.crossBreed(chromosomes);
     }

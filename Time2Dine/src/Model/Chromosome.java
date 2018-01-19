@@ -33,7 +33,7 @@ public class Chromosome implements Comparable<Chromosome> {
         while (cost < canteen.getBudget()) {
             int wrongCounter = 0;
 
-            while(wrongCounter < 10 && cost < canteen.getBudget()) {
+            while(wrongCounter < 100 && cost < canteen.getBudget()) {
                 int x = random.nextInt(canteen.getMaxPixelX());
                 int y = canteen.getMinPixelY(x)+ random.nextInt(canteen.getMaxPixelY()-canteen.getMinPixelY(x));
                 FurnitureEnum randomFE = furnitureModel.get(random.nextInt(furnitureModel.size())).getKey();
@@ -52,15 +52,15 @@ public class Chromosome implements Comparable<Chromosome> {
             for (int y = 0; y < canteen.getMaxPixelY(); y++) {
                 for (int x = 0; x < canteen.getMaxPixelX(y); x++) {
                     for (FurnitureEnum furnitureEnum : FurnitureEnum.values()) {
-                        //if (checkPosition(x, y, furnitureEnum,canteen)) {
+                        if (checkPosition(x, y, furnitureEnum,canteen)) {
                             furnitureList.add(new Furniture(furnitureEnum, x, y));
-                        //}
+                        }
                     }
                 }
             }
             if (!furnitureList.isEmpty()) {
-                /*wrongCounter = 0;
-                while(wrongCounter < 10 && cost < canteen.getBudget() ) {
+                wrongCounter = 0;
+                while(wrongCounter < 100 && cost < canteen.getBudget() ) {
                     Furniture furniture = furnitureList.get(random.nextInt(furnitureList.size()));
                     if(checkPosition(furniture.getX1Position(), furniture.getY1Position(), furniture.getKey(),canteen)) {
                         wrongCounter = 0;
@@ -68,7 +68,7 @@ public class Chromosome implements Comparable<Chromosome> {
                         updatePosition(furniture.getX1Position(), furniture.getY1Position(), furniture.getKey());
                         cost += canteen.getCost(furniture.getKey());
                     } else wrongCounter++;
-                }*/
+                } break;
             } else break; // No place for any furniture
         }
 

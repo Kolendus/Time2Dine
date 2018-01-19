@@ -1173,11 +1173,16 @@ public class GUI extends javax.swing.JFrame {
     private void jStartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartButtonActionPerformed
         controller = new Controller();
         loadCanteen();
+        loadSettings();
         controller.createPopulation();
-        jDisplayPanel.setCanteen((controller.getCanteen()));
-        jDisplayPanel.setChromosome((controller.getBestChromosome()));
-        jDisplayPanel.repaint();
-        jDisplayPanel.setVisible(true);
+        int iterNumber = (int) controller.getIterNumber();
+        for(int i=0; i<iterNumber; i++) {
+            jDisplayPanel.setCanteen((controller.getCanteen()));
+            jDisplayPanel.setChromosome((controller.getBestChromosome()));
+            jDisplayPanel.repaint();
+            jDisplayPanel.setVisible(true);
+            controller.nextGeneration();
+        }
 
     }//GEN-LAST:event_jStartButtonActionPerformed
     private void loadCanteen() {
@@ -1245,28 +1250,31 @@ public class GUI extends javax.swing.JFrame {
         }
         return true;
     }
-    private boolean loadSettings() {
+    private void loadSettings() {
         try {
-            double genQuan = Integer.parseInt(jGenerationQuantityField.getText());
-            double iterSpeed = Integer.parseInt(jIterationSpeedField.getText());
-            double mutationRatio = Integer.parseInt(jMutationRatioField.getText());
-            double sizeOfGen = Integer.parseInt(jSizeOfOneGenerationField.getText());
+            double genQuan = Double.parseDouble(jGenerationQuantityField.getText());
+            double iterSpeed = Double.parseDouble(jIterationSpeedField.getText());
+            double mutationRatio = Double.parseDouble(jMutationRatioField.getText());
+            double sizeOfGen = Double.parseDouble(jSizeOfOneGenerationField.getText());
+            double crossRatio = Double.parseDouble(jCrossbreadRatioField.getText());
+
             if (genQuan < 0 || iterSpeed < 0 || mutationRatio < 0 || sizeOfGen < 0) {
                 errorMessage("Parameters cannot be negative.");
-                return false;
+                return;
             }
             controller.setAlgorithmSettings("genQuan",genQuan);
             controller.setAlgorithmSettings("iterSpeed",iterSpeed);
             controller.setAlgorithmSettings("mutationRatio",mutationRatio);
             controller.setAlgorithmSettings("sizeOfOneGen",sizeOfGen);
+            controller.setAlgorithmSettings("crossRatio",crossRatio);
         } catch (NullPointerException e) {
             errorMessage("You need to input all data in correct fields");
-            return false;
+            return;
         } catch (NumberFormatException e) {
             errorMessage("Illegal data type. Numbers expected");
-            return false;
+            return;
         }
-        return true;
+        return;
     }
     private void jTotalBudgetPriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTotalBudgetPriceFieldActionPerformed
         // TODO add your handling code here:

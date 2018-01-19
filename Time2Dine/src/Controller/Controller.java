@@ -35,4 +35,12 @@ public class Controller {
     public Chromosome getBestChromosome() {
         return chromosomes.get(0);
     }
+
+    public void nextGeneration() {
+       chromosomes = theModel.nextGeneration(canteen,chromosomes,canteen.getAlgorithmSetting("mutationRatio"), canteen.getAlgorithmSetting("crossRatio"));
+    }
+
+    public double getIterNumber() {
+        return canteen.getAlgorithmSetting("genQuan");
+    }
 }
