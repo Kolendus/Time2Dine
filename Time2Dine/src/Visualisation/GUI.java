@@ -1,8 +1,5 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.io.File;
-import java.util.IllegalFormatException;
 
 public class GUI extends javax.swing.JFrame {
 
@@ -106,8 +103,8 @@ public class GUI extends javax.swing.JFrame {
         jBigBenchPriceLabel = new javax.swing.JLabel();
         jBigBenchPriceField = new javax.swing.JTextField();
         jBigBenchDollarLabel = new javax.swing.JLabel();
-        jDisplayPanel = new javax.swing.JPanel();
-        //jDisplayPanel = new Graphics2D(controller.getCanteen(),controller.getBestChromosome());
+        //jDisplayPanel = new javax.swing.JPanel();
+        jDisplayPanel = new Graphics2D();
         jStopButton = new javax.swing.JButton();
         jStartButton = new javax.swing.JButton();
         jAlgorithmSettingsLabel = new javax.swing.JLabel();
@@ -159,28 +156,28 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout jCanteenBudgetPanelLayout = new javax.swing.GroupLayout(jCanteenBudgetPanel);
         jCanteenBudgetPanel.setLayout(jCanteenBudgetPanelLayout);
         jCanteenBudgetPanelLayout.setHorizontalGroup(
-            jCanteenBudgetPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jCanteenBudgetPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTotalBudgetLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTotalBudgetPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTotalBudgetPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTotalBudgetDollarLabel)
-                .addContainerGap())
+                jCanteenBudgetPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jCanteenBudgetPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jTotalBudgetLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTotalBudgetPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTotalBudgetPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTotalBudgetDollarLabel)
+                                .addContainerGap())
         );
         jCanteenBudgetPanelLayout.setVerticalGroup(
-            jCanteenBudgetPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jCanteenBudgetPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jCanteenBudgetPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTotalBudgetLabel)
-                    .addComponent(jTotalBudgetPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTotalBudgetDollarLabel)
-                    .addComponent(jTotalBudgetPriceLabel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                jCanteenBudgetPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jCanteenBudgetPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jCanteenBudgetPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTotalBudgetLabel)
+                                        .addComponent(jTotalBudgetPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTotalBudgetDollarLabel)
+                                        .addComponent(jTotalBudgetPriceLabel))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jDoorWindowPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -233,60 +230,60 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout jDoorWindowPanelLayout = new javax.swing.GroupLayout(jDoorWindowPanel);
         jDoorWindowPanel.setLayout(jDoorWindowPanelLayout);
         jDoorWindowPanelLayout.setHorizontalGroup(
-            jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDoorWindowPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDoorWindowPanelLayout.createSequentialGroup()
-                        .addComponent(jDoorsLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jDoorsPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jDoorsTextPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDoorDollarLabel))
-                    .addGroup(jDoorWindowPanelLayout.createSequentialGroup()
-                        .addGroup(jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDoorWindowPanelLayout.createSequentialGroup()
-                                .addComponent(jSingleWindowLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jSingleWindowPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSingleWindowPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jDoorWindowPanelLayout.createSequentialGroup()
-                                .addComponent(jDoubleWindowLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jDoubleWindowPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jDoubleWindowPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSingleWindowDollarLabel)
-                            .addComponent(jDoubleWindowDollarLabel))))
-                .addContainerGap())
+                jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jDoorWindowPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jDoorWindowPanelLayout.createSequentialGroup()
+                                                .addComponent(jDoorsLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jDoorsPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jDoorsTextPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jDoorDollarLabel))
+                                        .addGroup(jDoorWindowPanelLayout.createSequentialGroup()
+                                                .addGroup(jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(jDoorWindowPanelLayout.createSequentialGroup()
+                                                                .addComponent(jSingleWindowLabel)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(jSingleWindowPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(jSingleWindowPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(jDoorWindowPanelLayout.createSequentialGroup()
+                                                                .addComponent(jDoubleWindowLabel)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(jDoubleWindowPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(jDoubleWindowPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jSingleWindowDollarLabel)
+                                                        .addComponent(jDoubleWindowDollarLabel))))
+                                .addContainerGap())
         );
         jDoorWindowPanelLayout.setVerticalGroup(
-            jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDoorWindowPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jDoorsLabel)
-                    .addComponent(jDoorsTextPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDoorDollarLabel)
-                    .addComponent(jDoorsPriceLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSingleWindowLabel)
-                    .addComponent(jSingleWindowPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSingleWindowDollarLabel)
-                    .addComponent(jSingleWindowPriceLabel))
-                .addGap(7, 7, 7)
-                .addGroup(jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jDoubleWindowLabel)
-                    .addComponent(jDoubleWindowPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDoubleWindowDollarLabel)
-                    .addComponent(jDoubleWindowPriceLabel))
-                .addContainerGap(16, Short.MAX_VALUE))
+                jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jDoorWindowPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jDoorsLabel)
+                                        .addComponent(jDoorsTextPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jDoorDollarLabel)
+                                        .addComponent(jDoorsPriceLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jSingleWindowLabel)
+                                        .addComponent(jSingleWindowPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSingleWindowDollarLabel)
+                                        .addComponent(jSingleWindowPriceLabel))
+                                .addGap(7, 7, 7)
+                                .addGroup(jDoorWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jDoubleWindowLabel)
+                                        .addComponent(jDoubleWindowPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jDoubleWindowDollarLabel)
+                                        .addComponent(jDoubleWindowPriceLabel))
+                                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jTablePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -354,77 +351,77 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout jTablePanelLayout = new javax.swing.GroupLayout(jTablePanel);
         jTablePanel.setLayout(jTablePanelLayout);
         jTablePanelLayout.setHorizontalGroup(
-            jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jTablePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jTablePanelLayout.createSequentialGroup()
-                        .addComponent(jOnePersonTableLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jOnePersonTablePriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jOnePersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jOnePersonTableDollarLabel))
-                    .addGroup(jTablePanelLayout.createSequentialGroup()
-                        .addComponent(jSixPersonTableLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSixPersonPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSixPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSixPersonTableDollarLabel))
-                    .addGroup(jTablePanelLayout.createSequentialGroup()
-                        .addComponent(jTwoPersonTableLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTwoPersonPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTwoPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTwoPersonTableDollarLabel))
-                    .addGroup(jTablePanelLayout.createSequentialGroup()
-                        .addComponent(jFourPersonTableLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
-                        .addComponent(jFourPersonPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jFourPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFourPersonTableDollarLabel)))
-                .addContainerGap())
+                jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jTablePanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jTablePanelLayout.createSequentialGroup()
+                                                .addComponent(jOnePersonTableLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jOnePersonTablePriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jOnePersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jOnePersonTableDollarLabel))
+                                        .addGroup(jTablePanelLayout.createSequentialGroup()
+                                                .addComponent(jSixPersonTableLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jSixPersonPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jSixPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jSixPersonTableDollarLabel))
+                                        .addGroup(jTablePanelLayout.createSequentialGroup()
+                                                .addComponent(jTwoPersonTableLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jTwoPersonPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTwoPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTwoPersonTableDollarLabel))
+                                        .addGroup(jTablePanelLayout.createSequentialGroup()
+                                                .addComponent(jFourPersonTableLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+                                                .addComponent(jFourPersonPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jFourPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jFourPersonTableDollarLabel)))
+                                .addContainerGap())
         );
         jTablePanelLayout.setVerticalGroup(
-            jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jTablePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jTablePanelLayout.createSequentialGroup()
-                        .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jTablePanelLayout.createSequentialGroup()
-                                .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jOnePersonTableLabel)
-                                    .addComponent(jOnePersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jOnePersonTableDollarLabel)
-                                    .addComponent(jOnePersonTablePriceLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTwoPersonTableLabel))
-                            .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTwoPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTwoPersonTableDollarLabel)
-                                .addComponent(jTwoPersonPriceLabel)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jFourPersonTableLabel))
-                    .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jFourPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jFourPersonTableDollarLabel)
-                        .addComponent(jFourPersonPriceLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jSixPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSixPersonTableDollarLabel)
-                        .addComponent(jSixPersonPriceLabel))
-                    .addComponent(jSixPersonTableLabel))
-                .addContainerGap())
+                jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jTablePanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(jTablePanelLayout.createSequentialGroup()
+                                                .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(jTablePanelLayout.createSequentialGroup()
+                                                                .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                        .addComponent(jOnePersonTableLabel)
+                                                                        .addComponent(jOnePersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(jOnePersonTableDollarLabel)
+                                                                        .addComponent(jOnePersonTablePriceLabel))
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(jTwoPersonTableLabel))
+                                                        .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(jTwoPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTwoPersonTableDollarLabel)
+                                                                .addComponent(jTwoPersonPriceLabel)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jFourPersonTableLabel))
+                                        .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jFourPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jFourPersonTableDollarLabel)
+                                                .addComponent(jFourPersonPriceLabel)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                                .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jSixPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jSixPersonTableDollarLabel)
+                                                .addComponent(jSixPersonPriceLabel))
+                                        .addComponent(jSixPersonTableLabel))
+                                .addContainerGap())
         );
 
         jChairPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -462,45 +459,45 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout jChairPanelLayout = new javax.swing.GroupLayout(jChairPanel);
         jChairPanel.setLayout(jChairPanelLayout);
         jChairPanelLayout.setHorizontalGroup(
-            jChairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jChairPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jChairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jChairPanelLayout.createSequentialGroup()
-                        .addComponent(jBigChairLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBigCairPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBigChairPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBigChairDollarLabel))
-                    .addGroup(jChairPanelLayout.createSequentialGroup()
-                        .addComponent(jSmallChairLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSmallChairPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSmallChairPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSmallChairDollarLabel)))
-                .addContainerGap())
+                jChairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jChairPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jChairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jChairPanelLayout.createSequentialGroup()
+                                                .addComponent(jBigChairLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jBigCairPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jBigChairPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jBigChairDollarLabel))
+                                        .addGroup(jChairPanelLayout.createSequentialGroup()
+                                                .addComponent(jSmallChairLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jSmallChairPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jSmallChairPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jSmallChairDollarLabel)))
+                                .addContainerGap())
         );
         jChairPanelLayout.setVerticalGroup(
-            jChairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jChairPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jChairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSmallChairLabel)
-                    .addComponent(jSmallChairPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSmallChairDollarLabel)
-                    .addComponent(jSmallChairPriceLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jChairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jChairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jBigChairPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jBigChairDollarLabel)
-                        .addComponent(jBigCairPriceLabel))
-                    .addComponent(jBigChairLabel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                jChairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jChairPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jChairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jSmallChairLabel)
+                                        .addComponent(jSmallChairPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSmallChairDollarLabel)
+                                        .addComponent(jSmallChairPriceLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jChairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jChairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jBigChairPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jBigChairDollarLabel)
+                                                .addComponent(jBigCairPriceLabel))
+                                        .addComponent(jBigChairLabel))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jIluminationPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -553,60 +550,60 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout jIluminationPanelLayout = new javax.swing.GroupLayout(jIluminationPanel);
         jIluminationPanel.setLayout(jIluminationPanelLayout);
         jIluminationPanelLayout.setHorizontalGroup(
-            jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jIluminationPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jIluminationPanelLayout.createSequentialGroup()
-                        .addComponent(jLowIlluminationLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLowIlluminationPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLowIllumiantionPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLowIllumiantionDollarLabel))
-                    .addGroup(jIluminationPanelLayout.createSequentialGroup()
-                        .addComponent(jMediumIlluminationLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-                        .addComponent(jMediumIlluminationPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jMediumIllumiantionPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jMediumIllumiantionDollarLabel))
-                    .addGroup(jIluminationPanelLayout.createSequentialGroup()
-                        .addComponent(jStrongIlluminationLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
-                        .addComponent(jStrongIlluminationPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jStrongIllumiantionPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jStrongIllumiantionDollarLabel)))
-                .addContainerGap())
+                jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jIluminationPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jIluminationPanelLayout.createSequentialGroup()
+                                                .addComponent(jLowIlluminationLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jLowIlluminationPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jLowIllumiantionPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLowIllumiantionDollarLabel))
+                                        .addGroup(jIluminationPanelLayout.createSequentialGroup()
+                                                .addComponent(jMediumIlluminationLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                                                .addComponent(jMediumIlluminationPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jMediumIllumiantionPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jMediumIllumiantionDollarLabel))
+                                        .addGroup(jIluminationPanelLayout.createSequentialGroup()
+                                                .addComponent(jStrongIlluminationLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                                                .addComponent(jStrongIlluminationPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jStrongIllumiantionPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jStrongIllumiantionDollarLabel)))
+                                .addContainerGap())
         );
         jIluminationPanelLayout.setVerticalGroup(
-            jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jIluminationPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLowIlluminationLabel)
-                    .addComponent(jLowIllumiantionPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLowIllumiantionDollarLabel)
-                    .addComponent(jLowIlluminationPriceLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jMediumIlluminationLabel)
-                    .addGroup(jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jMediumIllumiantionPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jMediumIllumiantionDollarLabel)
-                        .addComponent(jMediumIlluminationPriceLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jStrongIlluminationLabel)
-                    .addGroup(jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jStrongIllumiantionPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jStrongIllumiantionDollarLabel)
-                        .addComponent(jStrongIlluminationPriceLabel)))
-                .addContainerGap())
+                jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jIluminationPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLowIlluminationLabel)
+                                        .addComponent(jLowIllumiantionPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLowIllumiantionDollarLabel)
+                                        .addComponent(jLowIlluminationPriceLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jMediumIlluminationLabel)
+                                        .addGroup(jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jMediumIllumiantionPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jMediumIllumiantionDollarLabel)
+                                                .addComponent(jMediumIlluminationPriceLabel)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jStrongIlluminationLabel)
+                                        .addGroup(jIluminationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jStrongIllumiantionPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jStrongIllumiantionDollarLabel)
+                                                .addComponent(jStrongIlluminationPriceLabel)))
+                                .addContainerGap())
         );
 
         jCanteenSizePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -666,80 +663,80 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout jCanteenSizePanelLayout = new javax.swing.GroupLayout(jCanteenSizePanel);
         jCanteenSizePanel.setLayout(jCanteenSizePanelLayout);
         jCanteenSizePanelLayout.setHorizontalGroup(
-            jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
-                        .addComponent(jBottomWallLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLeftWallSizeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jBottomWallSizeLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
-                        .addComponent(jLeftWallLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
-                        .addComponent(jRightWallLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRightWallSizeLabel))
-                    .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
-                        .addComponent(jTopWallLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTopWallSizeLabel)))
-                .addGap(18, 18, 18)
-                .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
-                        .addComponent(jTopWallField)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTopWallMeterLabel))
-                    .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
-                        .addComponent(jRightWallField)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRightWallMeterLabel))
-                    .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
-                        .addComponent(jBottomWallField)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBottomWallMeterLabel))
-                    .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
-                        .addComponent(jLeftWallField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLeftWallMeterLabel)))
-                .addContainerGap())
+                jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
+                                                .addComponent(jBottomWallLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLeftWallSizeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jBottomWallSizeLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                        .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
+                                                .addComponent(jLeftWallLabel)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
+                                                .addComponent(jRightWallLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jRightWallSizeLabel))
+                                        .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
+                                                .addComponent(jTopWallLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jTopWallSizeLabel)))
+                                .addGap(18, 18, 18)
+                                .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
+                                                .addComponent(jTopWallField)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTopWallMeterLabel))
+                                        .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
+                                                .addComponent(jRightWallField)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jRightWallMeterLabel))
+                                        .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
+                                                .addComponent(jBottomWallField)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jBottomWallMeterLabel))
+                                        .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
+                                                .addComponent(jLeftWallField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLeftWallMeterLabel)))
+                                .addContainerGap())
         );
         jCanteenSizePanelLayout.setVerticalGroup(
-            jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
-                .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLeftWallLabel)
-                            .addComponent(jLeftWallField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLeftWallMeterLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jBottomWallLabel)
-                            .addComponent(jBottomWallField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBottomWallMeterLabel)
-                            .addComponent(jBottomWallSizeLabel)))
-                    .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLeftWallSizeLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRightWallLabel)
-                    .addComponent(jRightWallField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRightWallMeterLabel)
-                    .addComponent(jRightWallSizeLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTopWallLabel)
-                        .addComponent(jTopWallField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTopWallMeterLabel))
-                    .addComponent(jTopWallSizeLabel))
-                .addContainerGap(12, Short.MAX_VALUE))
+                jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
+                                .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
+                                                .addGap(3, 3, 3)
+                                                .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLeftWallLabel)
+                                                        .addComponent(jLeftWallField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jLeftWallMeterLabel))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jBottomWallLabel)
+                                                        .addComponent(jBottomWallField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jBottomWallMeterLabel)
+                                                        .addComponent(jBottomWallSizeLabel)))
+                                        .addGroup(jCanteenSizePanelLayout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(jLeftWallSizeLabel)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jRightWallLabel)
+                                        .addComponent(jRightWallField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jRightWallMeterLabel)
+                                        .addComponent(jRightWallSizeLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jCanteenSizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jTopWallLabel)
+                                                .addComponent(jTopWallField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jTopWallMeterLabel))
+                                        .addComponent(jTopWallSizeLabel))
+                                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         jCanteenSettingsLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -788,109 +785,109 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout jBenchPanelLayout = new javax.swing.GroupLayout(jBenchPanel);
         jBenchPanel.setLayout(jBenchPanelLayout);
         jBenchPanelLayout.setHorizontalGroup(
-            jBenchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jBenchPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jBenchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jBenchPanelLayout.createSequentialGroup()
-                        .addComponent(jSmallBenchLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSmallBenchPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSmallBenchPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSmallBenchDollarLabel))
-                    .addGroup(jBenchPanelLayout.createSequentialGroup()
-                        .addComponent(jBigBenchLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
-                        .addComponent(jBigBenchPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBigBenchPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBigBenchDollarLabel)))
-                .addContainerGap())
+                jBenchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jBenchPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jBenchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jBenchPanelLayout.createSequentialGroup()
+                                                .addComponent(jSmallBenchLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jSmallBenchPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jSmallBenchPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jSmallBenchDollarLabel))
+                                        .addGroup(jBenchPanelLayout.createSequentialGroup()
+                                                .addComponent(jBigBenchLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
+                                                .addComponent(jBigBenchPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jBigBenchPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jBigBenchDollarLabel)))
+                                .addContainerGap())
         );
         jBenchPanelLayout.setVerticalGroup(
-            jBenchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jBenchPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jBenchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSmallBenchLabel)
-                    .addComponent(jSmallBenchPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSmallBenchDollarLabel)
-                    .addComponent(jSmallBenchPriceLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jBenchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jBigBenchLabel)
-                    .addGroup(jBenchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jBigBenchPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jBigBenchDollarLabel)
-                        .addComponent(jBigBenchPriceLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                jBenchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jBenchPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jBenchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jSmallBenchLabel)
+                                        .addComponent(jSmallBenchPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSmallBenchDollarLabel)
+                                        .addComponent(jSmallBenchPriceLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jBenchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jBigBenchLabel)
+                                        .addGroup(jBenchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jBigBenchPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jBigBenchDollarLabel)
+                                                .addComponent(jBigBenchPriceLabel)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jCanteenSettingsPanelLayout = new javax.swing.GroupLayout(jCanteenSettingsPanel);
         jCanteenSettingsPanel.setLayout(jCanteenSettingsPanelLayout);
         jCanteenSettingsPanelLayout.setHorizontalGroup(
-            jCanteenSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jCanteenSettingsPanelLayout.createSequentialGroup()
-                .addGroup(jCanteenSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jCanteenSettingsPanelLayout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(jCanteenSettingsLabel)
-                        .addGap(0, 116, Short.MAX_VALUE))
-                    .addComponent(jDoorWindowPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTablePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jCanteenSizePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jCanteenBudgetPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jChairPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jIluminationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBenchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(jCanteenSettingsPanelLayout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addComponent(jCanteenSettingsSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                jCanteenSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jCanteenSettingsPanelLayout.createSequentialGroup()
+                                .addGroup(jCanteenSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jCanteenSettingsPanelLayout.createSequentialGroup()
+                                                .addGap(127, 127, 127)
+                                                .addComponent(jCanteenSettingsLabel)
+                                                .addGap(0, 116, Short.MAX_VALUE))
+                                        .addComponent(jDoorWindowPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTablePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jCanteenSizePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jCanteenBudgetPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jChairPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jIluminationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jBenchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap())
+                        .addGroup(jCanteenSettingsPanelLayout.createSequentialGroup()
+                                .addGap(153, 153, 153)
+                                .addComponent(jCanteenSettingsSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jCanteenSettingsPanelLayout.setVerticalGroup(
-            jCanteenSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jCanteenSettingsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jCanteenSettingsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCanteenBudgetPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCanteenSizePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDoorWindowPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jChairPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBenchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jIluminationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jCanteenSettingsSaveButton)
-                .addGap(29, 29, 29))
+                jCanteenSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jCanteenSettingsPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jCanteenSettingsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCanteenBudgetPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCanteenSizePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jDoorWindowPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jChairPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBenchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jIluminationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jCanteenSettingsSaveButton)
+                                .addGap(29, 29, 29))
         );
 
         javax.swing.GroupLayout jCanteenSettingsFrameLayout = new javax.swing.GroupLayout(jCanteenSettingsFrame.getContentPane());
         jCanteenSettingsFrame.getContentPane().setLayout(jCanteenSettingsFrameLayout);
         jCanteenSettingsFrameLayout.setHorizontalGroup(
-            jCanteenSettingsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jCanteenSettingsFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jCanteenSettingsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                jCanteenSettingsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jCanteenSettingsFrameLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jCanteenSettingsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())
         );
         jCanteenSettingsFrameLayout.setVerticalGroup(
-            jCanteenSettingsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jCanteenSettingsFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jCanteenSettingsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                jCanteenSettingsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jCanteenSettingsFrameLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jCanteenSettingsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -958,66 +955,66 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout jAlgorithmSettingsPanelLayout = new javax.swing.GroupLayout(jAlgorithmSettingsPanel);
         jAlgorithmSettingsPanel.setLayout(jAlgorithmSettingsPanelLayout);
         jAlgorithmSettingsPanelLayout.setHorizontalGroup(
-            jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jAlgorithmSettingsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jAlgorithmSettingsPanelLayout.createSequentialGroup()
-                        .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jGenerationQuantityLabel)
-                            .addComponent(jSizeOfOneGenerationLabel)
-                            .addComponent(jMutationRatioPanel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                        .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jGenerationQuantityField, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                            .addComponent(jSizeOfOneGenerationField)
-                            .addComponent(jMutationRatioField)))
-                    .addGroup(jAlgorithmSettingsPanelLayout.createSequentialGroup()
-                        .addComponent(jCrossbreadRatioLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCrossbreadRatioField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jAlgorithmSettingsPanelLayout.createSequentialGroup()
-                        .addComponent(jIterationSpeedLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jIterationSpeedField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jAlgorithmSettingsPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCrossbreadRatioSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jIterationSpeedSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jMutationRatioSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jAlgorithmSettingsPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jAlgorithmSettingsPanelLayout.createSequentialGroup()
+                                                .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jGenerationQuantityLabel)
+                                                        .addComponent(jSizeOfOneGenerationLabel)
+                                                        .addComponent(jMutationRatioPanel))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                                                .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(jGenerationQuantityField, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                                                        .addComponent(jSizeOfOneGenerationField)
+                                                        .addComponent(jMutationRatioField)))
+                                        .addGroup(jAlgorithmSettingsPanelLayout.createSequentialGroup()
+                                                .addComponent(jCrossbreadRatioLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jCrossbreadRatioField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jAlgorithmSettingsPanelLayout.createSequentialGroup()
+                                                .addComponent(jIterationSpeedLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jIterationSpeedField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jAlgorithmSettingsPanelLayout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jCrossbreadRatioSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jIterationSpeedSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jMutationRatioSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addContainerGap())
         );
         jAlgorithmSettingsPanelLayout.setVerticalGroup(
-            jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jAlgorithmSettingsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jGenerationQuantityLabel)
-                    .addComponent(jGenerationQuantityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSizeOfOneGenerationLabel)
-                    .addComponent(jSizeOfOneGenerationField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jMutationRatioPanel)
-                    .addComponent(jMutationRatioField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jMutationRatioSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
-                .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCrossbreadRatioLabel)
-                    .addComponent(jCrossbreadRatioField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jCrossbreadRatioSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jIterationSpeedLabel)
-                    .addComponent(jIterationSpeedField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jIterationSpeedSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jAlgorithmSettingsPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jGenerationQuantityLabel)
+                                        .addComponent(jGenerationQuantityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jSizeOfOneGenerationLabel)
+                                        .addComponent(jSizeOfOneGenerationField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jMutationRatioPanel)
+                                        .addComponent(jMutationRatioField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jMutationRatioSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)
+                                .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jCrossbreadRatioLabel)
+                                        .addComponent(jCrossbreadRatioField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jCrossbreadRatioSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jAlgorithmSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jIterationSpeedLabel)
+                                        .addComponent(jIterationSpeedField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jIterationSpeedSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jBarFile.setText("File");
@@ -1083,41 +1080,41 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jDisplayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jStartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jStopButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jAlgorithmSettingsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jAlgorithmSettingsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jDisplayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(jStartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(jStopButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(jAlgorithmSettingsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jAlgorithmSettingsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(55, 55, 55)))
+                                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jAlgorithmSettingsLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(jAlgorithmSettingsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jStopButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jStartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(70, 70, 70))
-                    .addComponent(jDisplayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jAlgorithmSettingsLabel)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jAlgorithmSettingsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(30, 30, 30)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jStopButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jStartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(70, 70, 70))
+                                        .addComponent(jDisplayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -1145,37 +1142,37 @@ public class GUI extends javax.swing.JFrame {
             return;
         }
     }
-   /* private void jItemSavePNG(ActionEvent evt) {
-        JFrame parentFrame = new JFrame();
+    /* private void jItemSavePNG(ActionEvent evt) {
+         JFrame parentFrame = new JFrame();
 
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Save as PNG...");
+         JFileChooser fileChooser = new JFileChooser();
+         fileChooser.setDialogTitle("Save as PNG...");
 
-        int userSelection = fileChooser.showSaveDialog(parentFrame);
+         int userSelection = fileChooser.showSaveDialog(parentFrame);
 
-        if (userSelection == JFileChooser.APPROVE_OPTION) {
-            File fileToSave = fileChooser.getSelectedFile();
-            if(fileToSave.getName().toLowerCase().endsWith(".png")) {
-                try {
-                    ImageIO.write(jDisplayPanel.getSavePicture(), "png", fileToSave);
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(new JFrame(),
-                            "Can't save picture!",
-                            "Inane error",
-                            JOptionPane.ERROR_MESSAGE);
-                };
-                JOptionPane.showMessageDialog(new JFrame(),
-                        "Picture saved.");
-            } else {
-                JOptionPane.showMessageDialog(new JFrame(),
-                        "File format must be png!",
-                        "Inane error",
-                        JOptionPane.ERROR_MESSAGE);
-            }
+         if (userSelection == JFileChooser.APPROVE_OPTION) {
+             File fileToSave = fileChooser.getSelectedFile();
+             if(fileToSave.getName().toLowerCase().endsWith(".png")) {
+                 try {
+                     ImageIO.write(jDisplayPanel.getSavePicture(), "png", fileToSave);
+                 } catch (Exception e) {
+                     JOptionPane.showMessageDialog(new JFrame(),
+                             "Can't save picture!",
+                             "Inane error",
+                             JOptionPane.ERROR_MESSAGE);
+                 };
+                 JOptionPane.showMessageDialog(new JFrame(),
+                         "Picture saved.");
+             } else {
+                 JOptionPane.showMessageDialog(new JFrame(),
+                         "File format must be png!",
+                         "Inane error",
+                         JOptionPane.ERROR_MESSAGE);
+             }
 
-        }
-    }
-*/
+         }
+     }
+ */
     private void jItemExiActionPerformed(ActionEvent evt) {
         System.exit(0);
     }
@@ -1194,11 +1191,76 @@ public class GUI extends javax.swing.JFrame {
 
     private void jStartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartButtonActionPerformed
         controller.createPopulation();
-        jDisplayPanel = new Graphics2D(controller.getCanteen(),controller.getBestChromosome());
+        jDisplayPanel.setCanteen((controller.getCanteen()));
+        jDisplayPanel.setChromosome((controller.getBestChromosome()));
         jDisplayPanel.setVisible(true);
 
     }//GEN-LAST:event_jStartButtonActionPerformed
+    private void loadCanteen() {
+        try {
+            int budget = Integer.parseInt(jTotalBudgetPriceField.getText());
+            double leftWall = Double.parseDouble(jLeftWallField.getText());
+            double rightWall = Double.parseDouble(jRightWallField.getText());
+            double botWall = Double.parseDouble(jBottomWallField.getText());
+            double topWall = Double.parseDouble(jTopWallField.getText());
+            System.out.println(budget + " " + leftWall + " " + rightWall + " " + topWall);
+            if (leftWall < 0 || rightWall < 0 || botWall < 0 || topWall < 0 || budget < 0) {
+                errorMessage("Parameters cannot be negative.");
+                return;
+            }
+            controller.createCanteen(botWall, topWall, rightWall, leftWall, budget);
+            if (!loadFurnitureCosts()) {
+                return;
+            }
+        } catch (NullPointerException e) {
+            errorMessage("You need to input all data in correct fields");
+            return;
+        } catch (NumberFormatException e) {
+            errorMessage("Illegal data type. Numbers expected");
+            return;
+        }
+    }
 
+    private boolean loadFurnitureCosts() {
+        try {
+            int door = Integer.parseInt(jDoorsTextPriceField.getText());
+            int sWindow = Integer.parseInt(jSingleWindowPriceField.getText());
+            int dWindow = Integer.parseInt(jDoubleWindowPriceField.getText());
+            int fourPTable = Integer.parseInt(jFourPersonTablePriceField.getText());
+            int sixPTable = Integer.parseInt(jSixPersonTablePriceField.getText());
+            int eigthPTable = Integer.parseInt(jEightPersonTablePriceField.getText());
+            int chair = Integer.parseInt(jChairPriceField.getText());
+            int smallBench = Integer.parseInt(jSmallBenchPriceField.getText());
+            int bigBench = Integer.parseInt(jBigBenchPriceField.getText());
+            int lowIlu = Integer.parseInt(jLowIllumiantionPriceField.getText());
+            int medIlu = Integer.parseInt(jMediumIllumiantionPriceField.getText());
+            int highIlu = Integer.parseInt(jStrongIllumiantionPriceField.getText());
+            controller.setCanteenCosts(FurnitureEnum.DOOR, door);
+            controller.setCanteenCosts(FurnitureEnum.SWINDOW, sWindow);
+            controller.setCanteenCosts(FurnitureEnum.DWINDOW, dWindow);
+            controller.setCanteenCosts(FurnitureEnum.FOURPTABLE, fourPTable);
+            controller.setCanteenCosts(FurnitureEnum.SIXPTABLE, sixPTable);
+            controller.setCanteenCosts(FurnitureEnum.EIGHTPTABLE, eigthPTable);
+            controller.setCanteenCosts(FurnitureEnum.CHAIR, chair);
+            controller.setCanteenCosts(FurnitureEnum.SMALLBENCH, smallBench);
+            controller.setCanteenCosts(FurnitureEnum.BIGBENCH, bigBench);
+            controller.setCanteenCosts(FurnitureEnum.LOWILUM, lowIlu);
+            controller.setCanteenCosts(FurnitureEnum.MEDILUM, medIlu);
+            controller.setCanteenCosts(FurnitureEnum.STRONGILUM, highIlu);
+            if (door < 0 || sWindow < 0 || dWindow < 0 || fourPTable < 0 || sixPTable < 0 || eigthPTable < 0 || chair < 0 || smallBench < 0
+                    || bigBench < 0 || lowIlu < 0 || medIlu < 0 || highIlu < 0) {
+                errorMessage("Parameters cannot be negative.");
+                return false;
+            }
+        } catch (NullPointerException e) {
+            errorMessage("You need to input all data in correct fields");
+            return false;
+        } catch (NumberFormatException e) {
+            errorMessage("Illegal data type. Numbers expected");
+            return false;
+        }
+        return true;
+    }
     private void jTotalBudgetPriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTotalBudgetPriceFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTotalBudgetPriceFieldActionPerformed
@@ -1354,7 +1416,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jCrossbreadRatioField;
     private javax.swing.JLabel jCrossbreadRatioLabel;
     private javax.swing.JSlider jCrossbreadRatioSlider;
-    private javax.swing.JPanel jDisplayPanel;
+    private Graphics2D jDisplayPanel;
     private javax.swing.JLabel jDoorDollarLabel;
     private javax.swing.JPanel jDoorWindowPanel;
     private javax.swing.JLabel jDoorsLabel;
