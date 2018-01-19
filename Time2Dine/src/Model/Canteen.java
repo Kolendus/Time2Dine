@@ -104,8 +104,4 @@ public class Canteen {
         return pixelY > lWall - rWall ? getInPixels(bWall) : getInPixels(bWall - tWall);
     }
 
-    public int getMinPixelY(int pixelX) {
-        return pixelX > bWall - tWall ? getInPixels(lWall - rWall) : 0;
-    }
-
 }
