@@ -17,6 +17,9 @@ public class Controller {
            /*ERROR MESSAGE*/
        }
     }
+    public void setFurnitureCosts(FurnitureEnum furnitureEnum, double cost){
+        canteen.setCost(furnitureEnum,cost);
+    }
     public void createPopulation(){
        chromosomes = theModel.createPopulation(this.canteen);
     }

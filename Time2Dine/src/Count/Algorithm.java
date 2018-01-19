@@ -62,6 +62,7 @@ public class Algorithm implements INAlgorithm {
                 if (furnitureSecond.getKey() == furnitureFirst.getKey()) {
                     newFurniturePosition(furnitureFirst, furnitureSecond, crossNewChromo);
                     secondCopy.getFurList().remove(index);
+                    break;
                 }
             }
         }
