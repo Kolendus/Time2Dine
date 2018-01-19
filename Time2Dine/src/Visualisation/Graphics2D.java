@@ -65,7 +65,7 @@ public class Graphics2D extends JPanel {
                 case "FOURPTABLE": img = table4; break;
                 case "SIXPTABLE": img = table6; break;
                 case "EIGHTPTABLE": img = table8; break;
-                case "SMALLCHAIR": img = chair; break;
+                case "CHAIR": img = chair; break;
                 case "SMALLBENCH": img = bench; break;
                 case "BIGBENCH": img = bench; break;
                 case "LOWILUM": img = lamp; break;

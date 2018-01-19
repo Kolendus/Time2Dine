@@ -40,29 +40,29 @@ public class GUI extends javax.swing.JFrame {
         jDoubleWindowPriceLabel = new javax.swing.JLabel();
         jTablePanel = new javax.swing.JPanel();
         jEightPersonTableLabel = new javax.swing.JLabel();
-        jTwoPersonTableLabel = new javax.swing.JLabel();
+        /*jTwoPersonTableLabel = new javax.swing.JLabel();*/
         jFourPersonTableLabel = new javax.swing.JLabel();
         jSixPersonTableLabel = new javax.swing.JLabel();
         jEightPersonTablePriceField = new javax.swing.JTextField();
         jEightPersonTableDollarLabel = new javax.swing.JLabel();
-        jTwoPersonTablePriceField = new javax.swing.JTextField();
-        jTwoPersonTableDollarLabel = new javax.swing.JLabel();
+/*        jTwoPersonTablePriceField = new javax.swing.JTextField();
+        jTwoPersonTableDollarLabel = new javax.swing.JLabel();*/
         jFourPersonTablePriceField = new javax.swing.JTextField();
         jFourPersonTableDollarLabel = new javax.swing.JLabel();
         jSixPersonTablePriceField = new javax.swing.JTextField();
         jSixPersonTableDollarLabel = new javax.swing.JLabel();
         jEightPersonTablePriceLabel = new javax.swing.JLabel();
-        jTwoPersonPriceLabel = new javax.swing.JLabel();
+/*        jTwoPersonPriceLabel = new javax.swing.JLabel();*/
         jFourPersonPriceLabel = new javax.swing.JLabel();
         jSixPersonPriceLabel = new javax.swing.JLabel();
         jChairPanel = new javax.swing.JPanel();
-        jChairLabel = new javax.swing.JLabel();
+        jchairLabel = new javax.swing.JLabel();
         jBigChairLabel = new javax.swing.JLabel();
-        jChairPriceField = new javax.swing.JTextField();
-        jChairDollarLabel = new javax.swing.JLabel();
+        jchairPriceField = new javax.swing.JTextField();
+        jchairDollarLabel = new javax.swing.JLabel();
         jBigChairPriceField = new javax.swing.JTextField();
         jBigChairDollarLabel = new javax.swing.JLabel();
-        jChairPriceLabel = new javax.swing.JLabel();
+        jchairPriceLabel = new javax.swing.JLabel();
         jBigCairPriceLabel = new javax.swing.JLabel();
         jIluminationPanel = new javax.swing.JPanel();
         jLowIlluminationLabel = new javax.swing.JLabel();
@@ -290,9 +290,9 @@ public class GUI extends javax.swing.JFrame {
 
         jTablePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jEightPersonTableLabel.setText("One-person table:");
+        jEightPersonTableLabel.setText("Eight-Person table:");
 
-        jTwoPersonTableLabel.setText("Two-person table:");
+        /*jTwoPersonTableLabel.setText("Two-person table:");*/
 
         jFourPersonTableLabel.setText("Four-person table:");
 
@@ -309,7 +309,7 @@ public class GUI extends javax.swing.JFrame {
 
         jEightPersonTableDollarLabel.setText("$");
 
-        jTwoPersonTablePriceField.setText("100");
+        /*jTwoPersonTablePriceField.setText("100");
         jTwoPersonTablePriceField.setToolTipText("");
         jTwoPersonTablePriceField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTwoPersonTablePriceField.addActionListener(new java.awt.event.ActionListener() {
@@ -318,7 +318,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jTwoPersonTableDollarLabel.setText("$");
+        jTwoPersonTableDollarLabel.setText("$");*/
 
         jFourPersonTablePriceField.setText("100");
         jFourPersonTablePriceField.setToolTipText("");
@@ -344,7 +344,7 @@ public class GUI extends javax.swing.JFrame {
 
         jEightPersonTablePriceLabel.setText("Price:");
 
-        jTwoPersonPriceLabel.setText("Price:");
+       /* jTwoPersonPriceLabel.setText("Price:");*/
 
         jFourPersonPriceLabel.setText("Price:");
 
@@ -358,13 +358,13 @@ public class GUI extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jTablePanelLayout.createSequentialGroup()
-                                                .addComponent(jEightPersonTablePriceField)
+                                                .addComponent(jEightPersonTableLabel)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jEightPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jEightPersonTablePriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jEightPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jEightPersonTablePriceField))
+                                                .addComponent(jEightPersonTableDollarLabel))
                                         .addGroup(jTablePanelLayout.createSequentialGroup()
                                                 .addComponent(jSixPersonTableLabel)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -373,14 +373,14 @@ public class GUI extends javax.swing.JFrame {
                                                 .addComponent(jSixPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jSixPersonTableDollarLabel))
-                                        .addGroup(jTablePanelLayout.createSequentialGroup()
+                                        /*.addGroup(jTablePanelLayout.createSequentialGroup()
                                                 .addComponent(jTwoPersonTableLabel)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(jTwoPersonPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jTwoPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTwoPersonTableDollarLabel))
+                                                .addComponent(jTwoPersonTableDollarLabel))*/
                                         .addGroup(jTablePanelLayout.createSequentialGroup()
                                                 .addComponent(jFourPersonTableLabel)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
@@ -405,11 +405,11 @@ public class GUI extends javax.swing.JFrame {
                                                                         .addComponent(jEightPersonTableDollarLabel)
                                                                         .addComponent(jEightPersonTablePriceLabel))
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(jTwoPersonTableLabel))
+                                                                /*.addComponent(jTwoPersonTableLabel))
                                                         .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                 .addComponent(jTwoPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addComponent(jTwoPersonTableDollarLabel)
-                                                                .addComponent(jTwoPersonPriceLabel)))
+                                                                .addComponent(jTwoPersonPriceLabel)))*/))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jFourPersonTableLabel))
                                         .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -428,20 +428,20 @@ public class GUI extends javax.swing.JFrame {
 
         jChairPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jChairLabel.setText("Small chair:");
+        jchairLabel.setText("Small chair:");
 
         jBigChairLabel.setText("Big chair:");
 
-        jChairPriceField.setText("100");
-        jChairPriceField.setToolTipText("");
-        jChairPriceField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jChairPriceField.addActionListener(new java.awt.event.ActionListener() {
+        jchairPriceField.setText("100");
+        jchairPriceField.setToolTipText("");
+        jchairPriceField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jchairPriceField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jChairPriceFieldActionPerformed(evt);
+                jchairPriceFieldActionPerformed(evt);
             }
         });
 
-        jChairDollarLabel.setText("$");
+        jchairDollarLabel.setText("$");
 
         jBigChairPriceField.setText("100");
         jBigChairPriceField.setToolTipText("");
@@ -454,7 +454,7 @@ public class GUI extends javax.swing.JFrame {
 
         jBigChairDollarLabel.setText("$");
 
-        jChairPriceLabel.setText("Price:");
+        jchairPriceLabel.setText("Price:");
 
         jBigCairPriceLabel.setText("Price:");
 
@@ -474,13 +474,13 @@ public class GUI extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jBigChairDollarLabel))
                                         .addGroup(jChairPanelLayout.createSequentialGroup()
-                                                .addComponent(jChairLabel)
+                                                .addComponent(jchairLabel)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jChairPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jchairPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jChairPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jchairPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jChairDollarLabel)))
+                                                .addComponent(jchairDollarLabel)))
                                 .addContainerGap())
         );
         jChairPanelLayout.setVerticalGroup(
@@ -488,10 +488,10 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(jChairPanelLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(jChairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jChairLabel)
-                                        .addComponent(jChairPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jChairDollarLabel)
-                                        .addComponent(jChairPriceLabel))
+                                        .addComponent(jchairLabel)
+                                        .addComponent(jchairPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jchairDollarLabel)
+                                        .addComponent(jchairPriceLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jChairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jChairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1217,7 +1217,7 @@ public class GUI extends javax.swing.JFrame {
             int fourPTable = Integer.parseInt(jFourPersonTablePriceField.getText());
             int sixPTable = Integer.parseInt(jSixPersonTablePriceField.getText());
             int eigthPTable = Integer.parseInt(jEightPersonTablePriceField.getText());
-            int chair = Integer.parseInt(jChairPriceField.getText());
+            int chair = Integer.parseInt(jchairPriceField.getText());
             int smallBench = Integer.parseInt(jSmallBenchPriceField.getText());
             int bigBench = Integer.parseInt(jBigBenchPriceField.getText());
             int lowIlu = Integer.parseInt(jLowIllumiantionPriceField.getText());
@@ -1270,9 +1270,9 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jEightPersonTablePriceFieldActionPerformed
 
-    private void jTwoPersonTablePriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTwoPersonTablePriceFieldActionPerformed
+/*    private void jTwoPersonTablePriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTwoPersonTablePriceFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTwoPersonTablePriceFieldActionPerformed
+    }//GEN-LAST:event_jTwoPersonTablePriceFieldActionPerformed*/
 
     private void jFourPersonTablePriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFourPersonTablePriceFieldActionPerformed
         // TODO add your handling code here:
@@ -1282,9 +1282,9 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jSixPersonTablePriceFieldActionPerformed
 
-    private void jChairPriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jChairhairPriceFieldActionPerformed
+    private void jchairPriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchairPriceFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jChairhairPriceFieldActionPerformed
+    }//GEN-LAST:event_jchairPriceFieldActionPerformed
 
     private void jBigChairPriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBigChairPriceFieldActionPerformed
         // TODO add your handling code here:
@@ -1491,10 +1491,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jSmallBenchLabel;
     private javax.swing.JTextField jSmallBenchPriceField;
     private javax.swing.JLabel jSmallBenchPriceLabel;
-    private javax.swing.JLabel jChairDollarLabel;
-    private javax.swing.JLabel jChairLabel;
-    private javax.swing.JTextField jChairPriceField;
-    private javax.swing.JLabel jChairPriceLabel;
+    private javax.swing.JLabel jchairDollarLabel;
+    private javax.swing.JLabel jchairLabel;
+    private javax.swing.JTextField jchairPriceField;
+    private javax.swing.JLabel jchairPriceLabel;
     private javax.swing.JButton jStartButton;
     private javax.swing.JButton jStopButton;
     private javax.swing.JLabel jStrongIllumiantionDollarLabel;
@@ -1510,9 +1510,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jTotalBudgetLabel;
     private javax.swing.JTextField jTotalBudgetPriceField;
     private javax.swing.JLabel jTotalBudgetPriceLabel;
-    private javax.swing.JLabel jTwoPersonPriceLabel;
+/*    private javax.swing.JLabel jTwoPersonPriceLabel;
     private javax.swing.JLabel jTwoPersonTableDollarLabel;
     private javax.swing.JLabel jTwoPersonTableLabel;
-    private javax.swing.JTextField jTwoPersonTablePriceField;
+    private javax.swing.JTextField jTwoPersonTablePriceField;*/
     // End of variables declaration//GEN-END:variables
 }

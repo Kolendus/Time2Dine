@@ -31,7 +31,7 @@ public class Evaluate implements INEvaluate {
             if (f.getKey().name().equals("EIGHTPTABLE")) {
                 p8tab++;
             }
-            if (f.getKey().name().equals("SMALLCHAIR")) {
+            if (f.getKey().name().equals("CHAIR")) {
                 chair++;
             }
         }
