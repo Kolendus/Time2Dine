@@ -28,7 +28,7 @@ public class Canteen {
 
     public Canteen(int budget) {
         costs = new HashMap<>();
-
+        algorithmSettings = new HashMap<>();
         evaluate = new Evaluate();
         this.budget = budget;
     }
@@ -53,7 +53,6 @@ public class Canteen {
     public double getCost(FurnitureEnum key) {
         return costs.get(key);
     }
-
     public boolean validateWallsPerimeters() {
         double leftArea, rightArea;
         leftArea = lWall * tWall;
