@@ -27,7 +27,7 @@ public class Controller {
     public void setCanteenCosts(FurnitureEnum key,int cost){
         this.canteen.setCost(key,cost);
     }
-
+    public void setAlgorithmSettings(String key, double setting){this.canteen.setAlgorithmSettings(key,setting);}
     public Canteen getCanteen() {
         return canteen;
     }

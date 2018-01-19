@@ -397,12 +397,12 @@ public class GUI extends javax.swing.JFrame {
                                         .addGroup(jTablePanelLayout.createSequentialGroup()
                                                 .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                         .addGroup(jTablePanelLayout.createSequentialGroup()
-                                                                .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                        .addComponent(jEightPersonTableLabel)
-                                                                        .addComponent(jEightPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(jEightPersonTableDollarLabel)
-                                                                        .addComponent(jEightPersonTablePriceLabel))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                        .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                .addComponent(jEightPersonTableLabel)
+                                                                                .addComponent(jEightPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addComponent(jEightPersonTableDollarLabel)
+                                                                                .addComponent(jEightPersonTablePriceLabel))
+                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                 /*.addComponent(jTwoPersonTableLabel))
                                                         .addGroup(jTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                 .addComponent(jTwoPersonTablePriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1233,6 +1233,29 @@ public class GUI extends javax.swing.JFrame {
                 errorMessage("Parameters cannot be negative.");
                 return false;
             }
+        } catch (NullPointerException e) {
+            errorMessage("You need to input all data in correct fields");
+            return false;
+        } catch (NumberFormatException e) {
+            errorMessage("Illegal data type. Numbers expected");
+            return false;
+        }
+        return true;
+    }
+    private boolean loadSettings() {
+        try {
+            double genQuan = Integer.parseInt(jGenerationQuantityField.getText());
+            double iterSpeed = Integer.parseInt(jIterationSpeedField.getText());
+            double mutationRatio = Integer.parseInt(jMutationRatioField.getText());
+            double sizeOfGen = Integer.parseInt(jSizeOfOneGenerationField.getText());
+            if (genQuan < 0 || iterSpeed < 0 || mutationRatio < 0 || sizeOfGen < 0) {
+                errorMessage("Parameters cannot be negative.");
+                return false;
+            }
+            controller.setAlgorithmSettings("genQuan",genQuan);
+            controller.setAlgorithmSettings("iterSpeed",iterSpeed);
+            controller.setAlgorithmSettings("mutationRatio",mutationRatio);
+            controller.setAlgorithmSettings("sizeOfOneGen",sizeOfGen);
         } catch (NullPointerException e) {
             errorMessage("You need to input all data in correct fields");
             return false;
