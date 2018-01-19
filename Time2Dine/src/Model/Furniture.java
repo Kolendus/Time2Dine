@@ -19,6 +19,9 @@ public class Furniture {
         this.x1Position = x1Position;
         this.y1Position = y1Position;
     }
+    public Furniture(FurnitureEnum key) {
+        this.key = key;
+    }
 
     public int getX1Position() {
         return x1Position;

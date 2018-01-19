@@ -25,9 +25,29 @@ public class Chromosome implements Comparable<Chromosome> {
     public void fillChromosome(Canteen canteen) {
 
         ArrayList<Furniture> furnitureList = new ArrayList<>();
+        ArrayList<Furniture> furnitureModel = new ArrayList<>();
+        fillFurnitureModel(furnitureModel);
+
         Random random = new Random();
 
         while (cost < canteen.getBudget()) {
+            int wrongCounter = 0;
+
+            while(wrongCounter < 10 && cost < canteen.getBudget()) {
+                int x = random.nextInt(canteen.getMaxPixelX());
+                int y = canteen.getMinPixelY(x)+ random.nextInt(canteen.getMaxPixelY()-canteen.getMinPixelY(x));
+                FurnitureEnum randomFE = furnitureModel.get(random.nextInt(furnitureModel.size())).getKey();
+                if(checkPosition(x, y, randomFE ,canteen) ) {
+                    wrongCounter = 0;
+                    Furniture f = new Furniture(randomFE,x,y);
+                    addFurniture(f);
+                    updatePosition(f.getX1Position(), f.getY1Position(), f.getKey());
+                    cost += canteen.getCost(f.getKey());
+                } else wrongCounter++;
+            }
+
+            if(cost >= canteen.getBudget()) break;
+
             furnitureList.clear();
             for (int y = 0; y < canteen.getMaxPixelY(); y++) {
                 for (int x = 0; x < canteen.getMaxPixelX(y); x++) {
@@ -39,7 +59,7 @@ public class Chromosome implements Comparable<Chromosome> {
                 }
             }
             if (!furnitureList.isEmpty()) {
-                int wrongCounter = 0;
+                /*wrongCounter = 0;
                 while(wrongCounter < 10 && cost < canteen.getBudget() ) {
                     Furniture furniture = furnitureList.get(random.nextInt(furnitureList.size()));
                     if(checkPosition(furniture.getX1Position(), furniture.getY1Position(), furniture.getKey(),canteen)) {
@@ -48,11 +68,17 @@ public class Chromosome implements Comparable<Chromosome> {
                         updatePosition(furniture.getX1Position(), furniture.getY1Position(), furniture.getKey());
                         cost += canteen.getCost(furniture.getKey());
                     } else wrongCounter++;
-                }
+                }*/
             } else break; // No place for any furniture
         }
 
         furnituresToBytes(canteen);
+    }
+
+    private void fillFurnitureModel(ArrayList<Furniture> furModel) {
+        for (FurnitureEnum furnitureEnum : FurnitureEnum.values()) {
+            furModel.add(new Furniture(furnitureEnum));
+        }
     }
 
     // ----------------------------- Helping functions -----------------------------
