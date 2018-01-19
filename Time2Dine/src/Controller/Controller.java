@@ -21,7 +21,7 @@ public class Controller {
        chromosomes = theModel.createPopulation(this.canteen);
     }
 
-    public void setCanteenCosts(String key,int cost){
+    public void setCanteenCosts(FurnitureEnum key,int cost){
         this.canteen.setCost(key,cost);
     }
 
