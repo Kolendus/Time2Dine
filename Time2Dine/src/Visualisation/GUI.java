@@ -1171,9 +1171,12 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jItemHelpActionPerformed
 
     private void jStartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartButtonActionPerformed
+        controller = new Controller();
+        loadCanteen();
         controller.createPopulation();
         jDisplayPanel.setCanteen((controller.getCanteen()));
         jDisplayPanel.setChromosome((controller.getBestChromosome()));
+        jDisplayPanel.repaint();
         jDisplayPanel.setVisible(true);
 
     }//GEN-LAST:event_jStartButtonActionPerformed
