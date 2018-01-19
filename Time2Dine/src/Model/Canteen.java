@@ -53,7 +53,6 @@ public class Canteen {
     public double getCost(FurnitureEnum key) {
         return costs.get(key);
     }
-
     public boolean validateWallsPerimeters() {
         double leftArea, rightArea;
         leftArea = lWall * tWall;

@@ -88,6 +88,7 @@ public class Algorithm implements INAlgorithm {
 
     private void newFurniturePosition(Furniture first, Furniture second, Chromosome crossedChromo) {
         Furniture newFur = new Furniture(first.getKey(), (first.getX1Position() + second.getX1Position()) / 2, (first.getY1Position() + second.getY1Position()) / 2);
+        crossedChromo.addFurniture(newFur);
     }
 
 
