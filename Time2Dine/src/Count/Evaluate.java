@@ -9,11 +9,11 @@ public class Evaluate implements INEvaluate {
         ArrayList<Furniture> furList = chromosome.getFurList();
         for (Furniture f : furList) {
             if (f.getKey().name().equals("LOWILUM"))
-                points += 1.0;
+                points += 0.1;
             if (f.getKey().name().equals("MEDILUM"))
-                points += 2.0;
+                points += 0.2;
             if (f.getKey().name().equals("STRONGILUM"))
-                points += 3.0;
+                points += 0.3;
         }
         countFurnitures(furList);
         chromosome.setEvaluationPoints(points);
@@ -39,58 +39,58 @@ public class Evaluate implements INEvaluate {
     }
 
     private void countPoints(int chair, int p4tab, int p6tab, int p8tab) {
-        if (5 <= chair || chair <= 10) {
+        if (5 <= chair && chair <= 10) {
             this.points += 3.5;
-        } else if (11 <= chair || chair <= 16) {
+        } else if (11 <= chair && chair <= 16) {
             this.points += 4.5;
-        } else if (17 <= chair || chair <= 22) {
+        } else if (17 <= chair && chair <= 22) {
             this.points += 5.0;
-        } else if (23 <= chair || chair <= 27) {
+        } else if (23 <= chair && chair <= 27) {
             this.points += 5.5;
-        } else if (28 <= chair || chair <= 32) {
+        } else if (28 <= chair && chair <= 32) {
             this.points += 6.5;
-        } else if (33 <= chair || chair <= 38) {
+        } else if (33 <= chair && chair <= 38) {
             this.points += 7.0;
-        } else if (39 <= chair || chair <= 44) {
+        } else if (39 <= chair && chair <= 44) {
             this.points += 7.5;
-        } else if (45 <= chair || chair <= 50) {
+        } else if (45 <= chair && chair <= 50) {
             this.points += 7.0;
-        } else if (chair > 50) {
+        } else  {
             this.points += 5.0;
         }
-        if (1 <= p4tab || p4tab <= 3) {
+        if (1 <= p4tab && p4tab <= 3) {
             this.points += 3.0;
-        } else if (4 <= p4tab || p4tab <= 6) {
+        } else if (4 <= p4tab && p4tab <= 6) {
             this.points += 4.0;
-        } else if (7 <= p4tab || p4tab <= 9) {
+        } else if (7 <= p4tab && p4tab <= 9) {
             this.points += 2.5;
-        } else if (10 <= p4tab || p4tab <= 12) {
+        } else if (10 <= p4tab && p4tab <= 12) {
             this.points += 1.5;
-        } else if (p4tab > 12) {
+        } else  {
             this.points += 1.5;
         }
 
-        if (1 <= p6tab || p6tab <= 3) {
+        if (1 <= p6tab && p6tab <= 3) {
             this.points += 3.5;
-        } else if (4 <= p6tab || p6tab <= 6) {
+        } else if (4 <= p6tab && p6tab <= 6) {
             this.points += 4.5;
-        } else if (7 <= p6tab || p6tab <= 9) {
+        } else if (7 <= p6tab && p6tab <= 9) {
             this.points += 4.0;
-        } else if (10 <= p6tab || p6tab <= 12) {
+        } else if (10 <= p6tab && p6tab <= 12) {
             this.points += 2.5;
-        } else if (p6tab > 12) {
+        } else  {
             this.points += 1.0;
         }
 
-        if (1 <= p8tab || p8tab <= 3) {
+        if (1 <= p8tab && p8tab <= 3) {
             this.points += 5.0;
-        } else if (4 <= p8tab || p8tab <= 6) {
+        } else if (4 <= p8tab && p8tab <= 6) {
             this.points += 7.0;
-        } else if (7 <= p8tab || p8tab <= 9) {
+        } else if (7 <= p8tab && p8tab <= 9) {
             this.points += 3.5;
-        } else if (10 <= p8tab || p8tab <= 12) {
+        } else if (10 <= p8tab && p8tab <= 12) {
             this.points += 1.5;
-        } else if (p8tab > 12) {
+        } else  {
             this.points += 0.5;
         }
 

@@ -1,6 +1,6 @@
 public enum FurnitureEnum {
     DOOR,SWINDOW,DWINDOW,FOURPTABLE,SIXPTABLE,EIGHTPTABLE,SMALLCHAIR,BIGCHAIR,
-    SMALLBENCH,BIGBENCH,LOWILUM,MEDILUM,STRONGILUM;
+    SMALLBENCH,BIGBENCH;
 
 
 
@@ -12,9 +12,9 @@ public enum FurnitureEnum {
                 case SMALLCHAIR: return 18;
                 case SMALLBENCH: return 99;
                 case BIGBENCH: return 198;
-                case LOWILUM: return 18;
+                /*case LOWILUM: return 18;
                 case MEDILUM: return 18;
-                case STRONGILUM: return 18;
+                case STRONGILUM: return 18;*/
             }
             return 100000;
         }
@@ -27,9 +27,9 @@ public enum FurnitureEnum {
             case SMALLCHAIR: return 22;
             case SMALLBENCH: return 32;
             case BIGBENCH: return 32;
-            case LOWILUM: return 18;
+            /*case LOWILUM: return 18;
             case MEDILUM: return 18;
-            case STRONGILUM: return 18;
+            case STRONGILUM: return 18;*/
         }
         return 100000;
     }
