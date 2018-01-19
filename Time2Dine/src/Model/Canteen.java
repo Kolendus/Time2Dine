@@ -16,9 +16,19 @@ public class Canteen {
     private Evaluate evaluate;
 
     private Map<FurnitureEnum, Double> costs;
+    private Map<String, Double> algorithmSettings;
+
+    public void setAlgorithmSettings(String key, Double setting) {
+        this.algorithmSettings.put(key, setting);
+    }
+
+    public double getAlgorithmSetting(String setting) {
+        return algorithmSettings.get(setting);
+    }
 
     public Canteen(int budget) {
         costs = new HashMap<>();
+
         evaluate = new Evaluate();
         this.budget = budget;
     }

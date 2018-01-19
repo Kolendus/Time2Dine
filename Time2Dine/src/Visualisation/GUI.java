@@ -9,9 +9,11 @@ public class GUI extends javax.swing.JFrame {
         initController();
         initComponents();
     }
-    private void initController(){
+
+    private void initController() {
         controller = new Controller();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -1119,7 +1121,8 @@ public class GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void errorMessage (String msg){
+
+    private void errorMessage(String msg) {
         JOptionPane.showMessageDialog(new JFrame(), msg, "Data input", JOptionPane.ERROR_MESSAGE);
     }
 
@@ -1171,12 +1174,16 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jItemHelpActionPerformed
 
     private void jStartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartButtonActionPerformed
+        if(!loadSettings()){
+            return;
+        }
         controller.createPopulation();
         jDisplayPanel.setCanteen((controller.getCanteen()));
         jDisplayPanel.setChromosome((controller.getBestChromosome()));
         jDisplayPanel.setVisible(true);
 
     }//GEN-LAST:event_jStartButtonActionPerformed
+
     private void loadCanteen() {
         try {
             int budget = Integer.parseInt(jTotalBudgetPriceField.getText());
@@ -1242,6 +1249,7 @@ public class GUI extends javax.swing.JFrame {
         }
         return true;
     }
+
     private void jTotalBudgetPriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTotalBudgetPriceFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTotalBudgetPriceFieldActionPerformed
@@ -1367,6 +1375,29 @@ public class GUI extends javax.swing.JFrame {
         });
     }
 
+    private boolean loadSettings() {
+        try {
+            double genQuan = Integer.parseInt(jGenerationQuantityField.getText());
+            double iterSpeed = Integer.parseInt(jIterationSpeedField.getText());
+            double mutationRatio = Integer.parseInt(jMutationRatioField.getText());
+            double sizeOfGen = Integer.parseInt(jSizeOfOneGenerationField.getText());
+            if (genQuan < 0 || iterSpeed < 0 || mutationRatio < 0 || sizeOfGen < 0) {
+                errorMessage("Parameters cannot be negative.");
+                return false;
+            }
+            controller.setAlgorithmSettings("genQuan",genQuan);
+            controller.setAlgorithmSettings("iterSpeed",iterSpeed);
+            controller.setAlgorithmSettings("mutationRatio",mutationRatio);
+            controller.setAlgorithmSettings("sizeOfOneGen",sizeOfGen);
+        } catch (NullPointerException e) {
+            errorMessage("You need to input all data in correct fields");
+            return false;
+        } catch (NumberFormatException e) {
+            errorMessage("Illegal data type. Numbers expected");
+            return false;
+        }
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jAlgorithmSettingsLabel;
