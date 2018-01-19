@@ -41,6 +41,10 @@ public class Furniture {
         return y1Position;
     }
 
+    public void setKey(FurnitureEnum key) {
+        this.key = key;
+    }
+
     public FurnitureEnum getKey() {
         return key;
     }
