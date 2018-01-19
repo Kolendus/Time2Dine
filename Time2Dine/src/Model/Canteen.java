@@ -22,13 +22,13 @@ public class Canteen {
         this.algorithmSettings.put(key, setting);
     }
 
-    public double getAlgorithmSetting(String setting) {
-        return algorithmSettings.get(setting);
+    public double getAlgorithmSetting(String key) {
+        return algorithmSettings.get(key);
     }
 
     public Canteen(int budget) {
         costs = new HashMap<>();
-
+        algorithmSettings = new HashMap<>();
         evaluate = new Evaluate();
         this.budget = budget;
     }

@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Random;
 
 public class Algorithm implements INAlgorithm {
@@ -37,16 +36,34 @@ public class Algorithm implements INAlgorithm {
         }
     }
 
-    public Chromosome crossBreed(ArrayList<Chromosome> chromosomes) {
-        return linearRanking(chromosomes);
+    public ArrayList<Chromosome> createNextGeneration(Canteen canteen, ArrayList<Chromosome> chromosomes, double mutationRatio, double crossRatio) {
+        int finalSize = chromosomes.size();
+        int mutationNumber = (int) ( mutationRatio*(double) chromosomes.size() );
+        int crossNumber = (int) ( crossRatio*(double) chromosomes.size() );
+        for(int i=0;i<crossNumber;i++) {
+            chromosomes.add( crossBreed(chromosomes) );
+        }
+        for(int i=0;i<mutationNumber;i++) {
+            mutate(chromosomes);
+        }
+        while(chromosomes.size() < finalSize) {
+            Chromosome chromosome = new Chromosome(canteen);
+            evaluate.evaluate(chromosome);
+            chromosomes.add(chromosome);
+        }
+        linearRanking(chromosomes);
+        return chromosomes;
     }
 
-    private Chromosome linearRanking(ArrayList<Chromosome> chromosomes) {
-        Collections.sort(chromosomes);
+    public Chromosome crossBreed(ArrayList<Chromosome> chromosomes) {
         Random r = new Random();
         int bound = Math.round(r.nextInt(chromosomes.size() / 2)) + 1;
         int index1 = r.nextInt(bound);
         return crossChromosomes(chromosomes.get(index1), chromosomes.get(index1 - 1));
+    }
+
+    private void linearRanking(ArrayList<Chromosome> chromosomes) {
+        Collections.sort(chromosomes);
     }
 
     private Chromosome crossChromosomes(Chromosome first, Chromosome second) {
