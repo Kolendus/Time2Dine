@@ -76,20 +76,23 @@ public class Algorithm implements INAlgorithm {
     }
     private void mutateIlum(Chromosome ch){
         Random r = new Random();
-        switch (r.nextInt(4)) {
+        switch (r.nextInt(5)) {
             case 0:
                 mutateEnum(FurnitureEnum.LOWILUM, FurnitureEnum.STRONGILUM, ch);
                 break;
             case 1:
-                mutateEnum(FurnitureEnum.MEDILUM, FurnitureEnum.STRONGILUM, ch);
+                mutateEnum(FurnitureEnum.LOWILUM, FurnitureEnum.MEDILUM, ch);
                 break;
             case 2:
-                mutateEnum(FurnitureEnum.MEDILUM, FurnitureEnum.LOWILUM, ch);
+                mutateEnum(FurnitureEnum.MEDILUM, FurnitureEnum.STRONGILUM, ch);
                 break;
             case 3:
-                mutateEnum(FurnitureEnum.STRONGILUM, FurnitureEnum.MEDILUM, ch);
+                mutateEnum(FurnitureEnum.MEDILUM, FurnitureEnum.LOWILUM, ch);
                 break;
             case 4:
+                mutateEnum(FurnitureEnum.STRONGILUM, FurnitureEnum.MEDILUM, ch);
+                break;
+            case 5:
                 mutateEnum(FurnitureEnum.STRONGILUM, FurnitureEnum.LOWILUM, ch);
                 break;
         }
