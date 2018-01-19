@@ -55,8 +55,10 @@ public class Graphics2D extends JPanel {
             repaint();
         }
     }
-
-    private void drawFurnitures(Graphics g) {
+    public void draw() {
+        repaint();
+    }
+    public void drawFurnitures(Graphics g) {
         ArrayList<Furniture> furList = chromosome.getFurList();
         for(Furniture f : furList) {
             BufferedImage img = chair;

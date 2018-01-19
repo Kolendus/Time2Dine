@@ -33,6 +33,7 @@ public class Controller {
     }
 
     public Chromosome getBestChromosome() {
+        System.out.println(chromosomes.get(0).getEvaluationPoints());
         return chromosomes.get(0);
     }
 
@@ -42,5 +43,9 @@ public class Controller {
 
     public double getIterNumber() {
         return canteen.getAlgorithmSetting("genQuan");
+    }
+
+    public double getDelay() {
+        return canteen.getAlgorithmSetting("iterSpeed");
     }
 }

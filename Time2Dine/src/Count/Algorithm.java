@@ -41,7 +41,8 @@ public class Algorithm implements INAlgorithm {
         int mutationNumber = (int) ( mutationRatio*(double) chromosomes.size() );
         int crossNumber = (int) ( crossRatio*(double) chromosomes.size() );
         for(int i=0;i<crossNumber;i++) {
-            chromosomes.add( crossBreed(chromosomes) );
+            //crossBreedv2(chromosomes);
+            chromosomes.add(crossBreed(chromosomes));
         }
         for(int i=0;i<mutationNumber;i++) {
             mutate(chromosomes);
@@ -62,28 +63,34 @@ public class Algorithm implements INAlgorithm {
         return crossChromosomes(chromosomes.get(index1), chromosomes.get(index1 - 1));
     }
 
+    public void crossBreedv2(ArrayList<Chromosome> chromosomes) {
+        Random r = new Random();
+        chromosomes.remove(r.nextInt((chromosomes.size())));
+    }
+
     private void linearRanking(ArrayList<Chromosome> chromosomes) {
         Collections.sort(chromosomes);
     }
 
     private Chromosome crossChromosomes(Chromosome first, Chromosome second) {
-        Chromosome crossNewChromo = new Chromosome();
         Chromosome secondCopy = second;
         int length = first.getFurList().size() > secondCopy.getFurList().size() ? secondCopy.getFurList().size() : first.getFurList().size();
 
         for (int i = 0; i < length; i++) {
-            Furniture furnitureFirst = first.getFurList().get(r.nextInt(first.getFurList().size()));
+            int toRemove = r.nextInt(first.getFurList().size());
+            Furniture furnitureFirst = first.getFurList().get(toRemove);
             for (int j = 0; j < 100; j++) {
-                int index = r.nextInt(second.getFurList().size());
+                int index = r.nextInt(secondCopy.getFurList().size());
                 Furniture furnitureSecond = secondCopy.getFurList().get(index);
                 if (furnitureSecond.getKey() == furnitureFirst.getKey()) {
-                    newFurniturePosition(furnitureFirst, furnitureSecond, crossNewChromo);
+                    newFurniturePosition(furnitureFirst, furnitureSecond,first );
                     secondCopy.getFurList().remove(index);
+                    first.getFurList().remove(toRemove);
                     break;
                 }
             }
         }
-        return crossNewChromo;
+        return first;
     }
 
     private void newFurniturePosition(Furniture first, Furniture second, Chromosome crossedChromo) {
@@ -168,7 +175,7 @@ public class Algorithm implements INAlgorithm {
             chromosomes.add(chromosome);
         }
 
-        Collections.sort(chromosomes);
+        linearRanking(chromosomes);
 
         return chromosomes;
     }

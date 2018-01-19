@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GUI extends javax.swing.JFrame {
 
@@ -1170,19 +1171,26 @@ public class GUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jItemHelpActionPerformed
 
-    private void jStartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartButtonActionPerformed
+    private void jStartButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jStartButtonActionPerformed
         controller = new Controller();
         loadCanteen();
         loadSettings();
         controller.createPopulation();
+        jDisplayPanel.setVisible(true);
         int iterNumber = (int) controller.getIterNumber();
-        for(int i=0; i<iterNumber; i++) {
-            jDisplayPanel.setCanteen((controller.getCanteen()));
-            jDisplayPanel.setChromosome((controller.getBestChromosome()));
-            jDisplayPanel.repaint();
-            jDisplayPanel.setVisible(true);
-            controller.nextGeneration();
-        }
+        int delay = (int) controller.getDelay();
+        ActionListener taskPerformer = new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                for(int i=0; i<iterNumber; i++) {
+                    jDisplayPanel.setCanteen((controller.getCanteen()));
+                    jDisplayPanel.setChromosome((controller.getBestChromosome()));
+                    jDisplayPanel.draw();
+                    controller.nextGeneration();
+                }
+            }
+        };
+
+        new Timer(delay, taskPerformer).start();
 
     }//GEN-LAST:event_jStartButtonActionPerformed
     private void loadCanteen() {
