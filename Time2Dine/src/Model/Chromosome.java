@@ -33,7 +33,7 @@ public class Chromosome implements Comparable<Chromosome> {
                 for (int x = 0; x < canteen.getMaxPixelX(y); x++) {
                     for (FurnitureEnum furnitureEnum : FurnitureEnum.values()) {
                         //if (checkPosition(x, y, furnitureEnum,canteen)) {
-                        furnitureList.add(new Furniture(furnitureEnum, x, y,10));
+                            furnitureList.add(new Furniture(furnitureEnum, x, y));
                         //}
                     }
                 }
@@ -46,7 +46,7 @@ public class Chromosome implements Comparable<Chromosome> {
                         wrongCounter = 0;
                         addFurniture(furniture);
                         updatePosition(furniture.getX1Position(), furniture.getY1Position(), furniture.getKey());
-                        cost += furniture.getFurCost();
+                        cost += canteen.getCost(furniture.getKey());
                     } else wrongCounter++;
                 }
             } else break; // No place for any furniture
@@ -157,7 +157,8 @@ public class Chromosome implements Comparable<Chromosome> {
     }
 
     @Override
-    public int compareTo(Chromosome o) {
-        return o.getEvaluationPoints() > this.getEvaluationPoints() ? 5 : -5;
+    public int compareTo(Chromosome compareChromosome){
+        double compareQuantity = compareChromosome.getEvaluationPoints();
+        return (int) (compareQuantity - this.evaluationPoints);
     }
 }
