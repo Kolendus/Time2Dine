@@ -40,7 +40,7 @@ public class Chromosome implements Comparable<Chromosome> {
             }
             if (!furnitureList.isEmpty()) {
                 int wrongCounter = 0;
-                while(wrongCounter < 3 && cost < canteen.getBudget() ) {
+                while(wrongCounter < 10 && cost < canteen.getBudget() ) {
                     Furniture furniture = furnitureList.get(random.nextInt(furnitureList.size()));
                     if(checkPosition(furniture.getX1Position(), furniture.getY1Position(), furniture.getKey(),canteen)) {
                         wrongCounter = 0;
@@ -62,7 +62,7 @@ public class Chromosome implements Comparable<Chromosome> {
         // condtion when furniture pos is out of canteen
         for (int xPos = x; xPos < x + furnitureEnum.getWidth(furnitureEnum); xPos++) {
             for (int yPos = y; yPos < y + furnitureEnum.getHeight(furnitureEnum); yPos++) {
-                if (canteenMap.length <= xPos || canteenMap.length <= yPos || canteenMap[xPos][yPos])
+                if (canteen.getMaxPixelX(yPos) <= xPos || canteen.getMinPixelY(xPos) >= yPos || yPos >= canteenMap.length || canteenMap[xPos][yPos])
                     return false;
             }
         }
