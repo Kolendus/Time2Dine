@@ -17,11 +17,14 @@ public class Controller {
            /*ERROR MESSAGE*/
        }
     }
+    public void setFurnitureCosts(FurnitureEnum furnitureEnum, double cost){
+        canteen.setCost(furnitureEnum,cost);
+    }
     public void createPopulation(){
        chromosomes = theModel.createPopulation(this.canteen);
     }
 
-    public void setCanteenCosts(String key,int cost){
+    public void setCanteenCosts(FurnitureEnum key,int cost){
         this.canteen.setCost(key,cost);
     }
 
