@@ -16,13 +16,7 @@ public class Chromosome implements Comparable<Chromosome> {
         initCanteenMap(canteen);
         fillChromosome(canteen);
     }
-    public Chromosome(){
-    }
-    @Override
-    public int compareTo(Chromosome compareChromosome){
-        double compareQuantity = compareChromosome.getEvaluationPoints();
-        return (int) (compareQuantity - this.evaluationPoints);
-    }
+
     // ----------------------------- Main algorithm making chromosome -----------------------------
     public void fillChromosome(Canteen canteen) {
 
@@ -154,8 +148,8 @@ public class Chromosome implements Comparable<Chromosome> {
         return evaluationPoints;
     }
 
-  /*  @Override
-   public int compareTo(Chromosome o) {
+    @Override
+    public int compareTo(Chromosome o) {
         return o.getEvaluationPoints() > this.getEvaluationPoints() ? 5 : -5;
-    }*/
+    }
 }
