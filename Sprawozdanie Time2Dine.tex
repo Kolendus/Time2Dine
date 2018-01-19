@@ -76,13 +76,9 @@ Z powodu wielkości diagramu obejmującego cały projekt wraz z metodami oraz po
 \subsection{Chromosome}
 \indent Moduł \verb|Chromosome| uległ srednim zmianom.
 Zrezygnowaliśmy z przechowywania informacji binarnej na temat rozłożenia mebli w Chromosomie, gdyż została zmieniona metoda mutacji oraz krzyżowania się chromosomów ze sobą. Funkcję generowania chromosomu z \verb|Algorithm| przenieśliśmy również do klasy \verb|Chromosome|.
-\subsection{INCheckFile}
-\indent Ze zmianą ciała metody w \verb|scanFile(String path)| , musiał zostać zmieniony interfejs. Zmianom uległ prototyp funkcji \verb|scanFile| w którym dodałem warunek rzucania wyjątkiem.
-\subsection{LoadFile}
-\indent Klasa \verb|LoadFile| nie zaznała poważniejszych zmian. Wprowadziłem do niej zmienną  typu \verb|Graph| ,według założeń z \verb|Specyfikacja Implementacyjna AiSD| , do której wczytuję dane z pliku wejściowego.
 \begin{center}
 \vspace{3mm}
-\underline{\huge\textbf{{Pakiet COUNT}}}
+\underline{\huge\textbf{{Pakiet Count}}}
 \end{center}
 \subsection{Algorithm}
 \indent W tej klasie zrezygnowaliśmy z funkcji \verb|generateChromosome(Canteen canteen)| na rzecz klasy \verb|Chromosome|. Argumentami funkcji krzyżującej oraz mutującej Chromosom stała się \verb|ArrayList<Chromosome> chromosomes|.
@@ -92,13 +88,24 @@ Zrezygnowaliśmy z przechowywania informacji binarnej na temat rozłożenia mebl
 \vspace{3mm}
 \underline{\huge\textbf{{Nowe Klasy}}}
 \subsection{FurnitureEnum}
+\indent Zdecydowaliśmy się na stworzenie klasy \verb|Enum| ,która będzie przechowowyała informacje o tym jakiego rodzaju jest mebel.Stworzyliśmy w niej funkcje \verb|getWidth(FurnitureEnum furEnum)| oraz \verb|getHeight(FurnitureEnum furEnum)| zwracające kolejno szerokość i wysokość obrazka poszczególnego mebla.
 \subsection{Model}
+\indent Została stworzona klasa \verb|Model| usprawniająca wspomaganie realizacji funkcji programu poprzez podmetody:
+\indent \verb|Canteen createCanteen(double bWall, double tWall, double rWall, double lWall)|
+\indent \verb|ArrayList<Chromosomes> createPopulation(Canteen canteen)| 
+\indent \verb|ArrayList<Chromosomes> nextGeneration(Canteen canteen, ArrayList<Chromosomes> chromosomes)|
 \subsection{Controller}
+\indent Został stworzony Controller zarządzający całym przebiegiem programu, przetwarzających najważniejsze dane algorytmu:
+\indent \verb|Chromosome getBestChromosome()|
+\indent \verb|double getIterNumber()| 
+\indent \verb|void nextGeneration()|
+\indent \verb|void setCanteenCosts(FurnitureEnum key, int cost)|
+\indent \verb|void setAlgorithmSettings(FurnitureEnum key, int cost)|
 \end{center}
 \newpage
 \section{\textbf{\underline{Opis algorytmu}}}
 
-\indent  Algorytm , który opracowałem w \verb|Specyfikacja Implementacyjna - AiSD| został całkowicie zmieniony. Zrezygnowałem z używania algorytmu Dijkstry przy wyszukiwaniu najkrótszej ścieżki. Problem z którym się mierzyłem udało się rozwiązać znacznie prościej. Z racji braku połączeń pomiędzy fermami oraz pomiędzy sklepami, graf poszukiwań znacznie się upraszczał. Znajdowałem najkrótszą drogą dla każdego sklepu, kierując się najpierw kosztem przewozu jednego jajka, a w drugiej kolejności przepustowością danego połączenia. Przesyłałem nią największą możliwą liczbę jaj z danej fermy do danego sklepu. W przypadku ,gdy sklep był zapełniony, ferma była pusta lub przepustowość drogi wynosiła zero , dany obiekt był usuwany z odpowiadającej mu listy. Dodatkowo , przy usuwaniu sklepu lub fermy, usuwane były również wszystkie połączenia tego obiektu z reszta.\\
+\indent  Założenia dotyczące algorytmu genetycznego zostały przez nas zmienione. Zrezygnowaliśmy z reprezentacji bitowej stołówki, gdyż musieliśmy zmierzyć się z problemem nieregularnego rozłożenia rodzajów mebli z Chromosome, przez co obligatoryjnym byłoby ustalenie poprawnej długości ciągu bitów reprezentujących odpowiednio: krzesła, stoły,ławy itd. Mutacja zachodzi poprzez zmiane mebla na jego inny odpowiednik. Stół cztero-osobowy zostaje zamieniony na sześcio-osobowy, mała lawa na dużą ławę. Krzyżowanie polega na znajdywaniu w dwóch chromosomach tych samych mebli oraz wyznaczenie nowej pozycji dla tego mebla na podstawie pozycji jego rodziców.\\
 \begin{center}
 \underline{Komplikacje}
 \end{center}
