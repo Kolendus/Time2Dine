@@ -15,7 +15,7 @@ public class Canteen {
     private int budget;
     private Evaluate evaluate;
 
-    private Map<String, Double> costs;
+    private Map<FurnitureEnum, Double> costs;
 
     public Canteen(int budget) {
         costs = new HashMap<>();
@@ -36,11 +36,11 @@ public class Canteen {
         return true;
     }
 
-    public void setCost(String key, double value) {
+    public void setCost(FurnitureEnum key, double value) {
         costs.put(key, value);
     }
 
-    public double getCost(String key) {
+    public double getCost(FurnitureEnum key) {
         return costs.get(key);
     }
 

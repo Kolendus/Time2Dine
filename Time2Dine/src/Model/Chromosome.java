@@ -25,26 +25,22 @@ public class Chromosome implements Comparable<Chromosome> {
 
         while (cost < canteen.getBudget()) {
             furnitureList.clear();
+            System.out.println(cost + " " + canteen.getBudget());
             for (int y = 0; y < canteen.getMaxPixelY(); y++) {
                 for (int x = 0; x < canteen.getMaxPixelX(y); x++) {
                     for (FurnitureEnum furnitureEnum : FurnitureEnum.values()) {
-                        //if (checkPosition(x, y, furnitureEnum,canteen)) {
-                        furnitureList.add(new Furniture(furnitureEnum, x, y,10));
-                        //}
+                        if (checkPosition(x, y, furnitureEnum,canteen)) {
+                            updatePosition(x, y, furnitureEnum);
+                            furnitureList.add(new Furniture(furnitureEnum, x, y,10));
+                        }
                     }
                 }
             }
             if (!furnitureList.isEmpty()) {
-                int wrongCounter = 0;
-                while(wrongCounter < 3 && cost < canteen.getBudget() ) {
-                    Furniture furniture = furnitureList.get(random.nextInt(furnitureList.size()));
-                    if(checkPosition(furniture.getX1Position(), furniture.getY1Position(), furniture.getKey(),canteen)) {
-                        wrongCounter = 0;
-                        addFurniture(furniture);
-                        updatePosition(furniture.getX1Position(), furniture.getY1Position(), furniture.getKey());
-                        cost += furniture.getFurCost();
-                    } else wrongCounter++;
-                }
+                Furniture furniture = furnitureList.get(random.nextInt(furnitureList.size()));
+                System.out.println("Rysuję " + furniture.getKey());
+                addFurniture(furniture);
+                cost += furniture.getFurCost();
             } else break; // No place for any furniture
         }
 
@@ -131,8 +127,6 @@ public class Chromosome implements Comparable<Chromosome> {
         this.evaluationPoints = evaluationPoints;
     }
 
-    public double getEvaluationPoints() { return evaluationPoints; }
-
     public void addFurniture(Furniture furniture) {
         furList.add(furniture);
     }
@@ -148,6 +142,10 @@ public class Chromosome implements Comparable<Chromosome> {
                 canteenMap[i][j] = false;
             }
         }
+    }
+
+    public double getEvaluationPoints() {
+        return evaluationPoints;
     }
 
     @Override
