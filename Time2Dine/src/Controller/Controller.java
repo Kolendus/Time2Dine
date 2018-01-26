@@ -20,8 +20,8 @@ public class Controller {
     public void setFurnitureCosts(FurnitureEnum furnitureEnum, double cost){
         canteen.setCost(furnitureEnum,cost);
     }
-    public void createPopulation(){
-       chromosomes = theModel.createPopulation(this.canteen);
+    public void createPopulation(int numberOfChromosomes){
+       chromosomes = theModel.createPopulation(this.canteen,numberOfChromosomes);
     }
 
     public void setCanteenCosts(FurnitureEnum key,int cost){
@@ -33,7 +33,6 @@ public class Controller {
     }
 
     public Chromosome getBestChromosome() {
-        System.out.println(chromosomes.get(0).getEvaluationPoints());
         return chromosomes.get(0);
     }
 
@@ -44,7 +43,9 @@ public class Controller {
     public double getIterNumber() {
         return canteen.getAlgorithmSetting("genQuan");
     }
-
+    public double getAlgorithmSettings(String key) {
+        return canteen.getAlgorithmSetting(key);
+    }
     public double getDelay() {
         return canteen.getAlgorithmSetting("iterSpeed");
     }

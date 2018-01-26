@@ -40,18 +40,21 @@ public class Algorithm implements INAlgorithm {
         int finalSize = chromosomes.size();
         int mutationNumber = (int) ( mutationRatio*(double) chromosomes.size() );
         int crossNumber = (int) ( crossRatio*(double) chromosomes.size() );
+
+        linearRanking(chromosomes);
         for(int i=0;i<crossNumber;i++) {
-            //crossBreedv2(chromosomes);
-            chromosomes.add(crossBreed(chromosomes));
+            crossBreedv2(chromosomes);
         }
         for(int i=0;i<mutationNumber;i++) {
-            mutate(chromosomes);
+           // mutate(chromosomes);
         }
+
         while(chromosomes.size() < finalSize) {
             Chromosome chromosome = new Chromosome(canteen);
             evaluate.evaluate(chromosome);
             chromosomes.add(chromosome);
         }
+
         linearRanking(chromosomes);
         return chromosomes;
     }
@@ -64,8 +67,9 @@ public class Algorithm implements INAlgorithm {
     }
 
     public void crossBreedv2(ArrayList<Chromosome> chromosomes) {
-        Random r = new Random();
-        chromosomes.remove(r.nextInt((chromosomes.size())));
+        /*Random r = new Random();
+        chromosomes.remove(r.nextInt((chromosomes.size())));*/
+        chromosomes.remove(chromosomes.size()- 1);
     }
 
     private void linearRanking(ArrayList<Chromosome> chromosomes) {

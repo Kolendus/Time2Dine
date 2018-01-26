@@ -40,21 +40,21 @@ public class Evaluate implements INEvaluate {
 
     private void countPoints(int chair, int p4tab, int p6tab, int p8tab) {
         if (5 <= chair && chair <= 10) {
-            this.points += 3.5;
+            this.points += 3.5 + 5;
         } else if (11 <= chair && chair <= 16) {
-            this.points += 4.5;
+            this.points += 4.5 + 5;
         } else if (17 <= chair && chair <= 22) {
-            this.points += 5.0;
+            this.points += 5.0 + 10;
         } else if (23 <= chair && chair <= 27) {
-            this.points += 5.5;
+            this.points += 5.5 + 10;
         } else if (28 <= chair && chair <= 32) {
-            this.points += 6.5;
+            this.points += 6.5 + 15;
         } else if (33 <= chair && chair <= 38) {
-            this.points += 7.0;
+            this.points += 7.0 + 15;
         } else if (39 <= chair && chair <= 44) {
-            this.points += 7.5;
+            this.points += 7.5 + 20;
         } else if (45 <= chair && chair <= 50) {
-            this.points += 7.0;
+            this.points += 7.0 + 20;
         } else  {
             this.points += 5.0;
         }

@@ -17,8 +17,8 @@ public class Model {
         return canteen;
     }
 
-    public ArrayList<Chromosome> createPopulation(Canteen canteen) {
-        return algorithm.generateChromosomes(canteen, 100);
+    public ArrayList<Chromosome> createPopulation(Canteen canteen, int numberOfChromosomes) {
+        return algorithm.generateChromosomes(canteen, numberOfChromosomes);
     }
 
     public ArrayList<Chromosome> nextGeneration(Canteen canteen, ArrayList<Chromosome> chromosomes, double mutationRatio, double crossRatio) {

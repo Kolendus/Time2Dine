@@ -1,10 +1,13 @@
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GUI extends javax.swing.JFrame {
 
     private Controller controller;
+    private int stopFlag = 0;
 
     public GUI() {
         initController();
@@ -118,11 +121,11 @@ public class GUI extends javax.swing.JFrame {
         jSizeOfOneGenerationField = new javax.swing.JTextField();
         jMutationRatioField = new javax.swing.JTextField();
         jCrossbreadRatioField = new javax.swing.JTextField();
-        jCrossbreadRatioSlider = new javax.swing.JSlider();
+        jCrossbreadRatioSlider = new javax.swing.JSlider(0,100,30);
         jIterationSpeedLabel = new javax.swing.JLabel();
         jIterationSpeedField = new javax.swing.JTextField();
-        jIterationSpeedSlider = new javax.swing.JSlider();
-        jMutationRatioSlider = new javax.swing.JSlider();
+        jIterationSpeedSlider = new javax.swing.JSlider(0,100,1);
+        jMutationRatioSlider = new javax.swing.JSlider(0,100,30);
         jMenuBar = new javax.swing.JMenuBar();
         jBarFile = new javax.swing.JMenu();
         jItemSavePNG = new javax.swing.JMenuItem();
@@ -928,30 +931,52 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jSizeOfOneGenerationField.setText("100");
+        jSizeOfOneGenerationField.setText("20");
         jSizeOfOneGenerationField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jSizeOfOneGenerationFieldActionPerformed(evt);
             }
         });
 
-        jMutationRatioField.setText("0.1");
+        jMutationRatioField.setText(Double.toString(jMutationRatioSlider.getValue()/100.0));
         jMutationRatioField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMutationRatioFieldActionPerformed(evt);
             }
         });
+        jMutationRatioSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                jMutationRatioField.setText(Double.toString(jMutationRatioSlider.getValue()/100.0));
+            }
 
-        jCrossbreadRatioField.setText("0.3");
+        });
+
+
+        jCrossbreadRatioField.setText(Double.toString(jCrossbreadRatioSlider.getValue()/100.0));
         jCrossbreadRatioField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCrossbreadRatioFieldActionPerformed(evt);
             }
         });
+        jCrossbreadRatioSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                jCrossbreadRatioField.setText(Double.toString(jCrossbreadRatioSlider.getValue()/100.0));
+            }
 
-        jIterationSpeedLabel.setText("Iteration speed:");
+        });
 
-        jIterationSpeedField.setText("1");
+        jIterationSpeedLabel.setText("Iteration delay:");
+
+        jIterationSpeedField.setText(Double.toString(jIterationSpeedSlider.getValue()/100.0));
+        jIterationSpeedSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                jIterationSpeedField.setText(Double.toString(jIterationSpeedSlider.getValue()/100.0));
+            }
+
+        });
 
         javax.swing.GroupLayout jAlgorithmSettingsPanelLayout = new javax.swing.GroupLayout(jAlgorithmSettingsPanel);
         jAlgorithmSettingsPanel.setLayout(jAlgorithmSettingsPanelLayout);
@@ -1171,17 +1196,27 @@ public class GUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jItemHelpActionPerformed
 
+
+    private void jIterationSpeedSliderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jItemHelpActionPerformed
+        jIterationSpeedField.setText(Double.toString(jIterationSpeedSlider.getValue()/100.0));
+    }
+
+
     private void jStartButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jStartButtonActionPerformed
         controller = new Controller();
         loadCanteen();
         loadSettings();
-        controller.createPopulation();
+        controller.createPopulation((int) controller.getAlgorithmSettings("sizeOfOneGen"));
         jDisplayPanel.setVisible(true);
         int iterNumber = (int) controller.getIterNumber();
         int delay = (int) controller.getDelay();
         ActionListener taskPerformer = new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 for(int i=0; i<iterNumber; i++) {
+                    if (stopFlag == 1) {
+                        stopFlag = 0;
+                        break;
+                    }
                     jDisplayPanel.setCanteen((controller.getCanteen()));
                     jDisplayPanel.setChromosome((controller.getBestChromosome()));
                     jDisplayPanel.draw();
@@ -1381,7 +1416,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jStrongIllumiantionPriceFieldActionPerformed
 
     private void jStopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStopButtonActionPerformed
-        // TODO add your handling code here:
+        stopFlag = 1;
     }//GEN-LAST:event_jStopButtonActionPerformed
 
     public static void main(String args[]) {
